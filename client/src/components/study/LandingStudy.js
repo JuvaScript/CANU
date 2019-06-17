@@ -206,13 +206,50 @@ class LandingStudy extends React.Component {
             </div>
           </div>
           <div className="right">
-            <h1>
-              How <span>creative</span> are you?
-            </h1>
-
             <p>
-              Test your creativity with different tasks and support a research
-              project at the Technical University of Munich.
+              Sehr geehrte Teilnehmerin, sehr geehrter Teilnehmer,
+              <br />
+              <br />
+              vielen Dank, dass Sie uns bei unserer Forschung unterstützen
+              möchten! Diese Studie wird im Rahmen eines interdisziplinären
+              Projekts vom Lehrstuhl für Ergonomie an der Technischen
+              Universität München durchgeführt. Projektverantwortlicher ist Herr
+              Lorenz Prasch, M.Sc.
+              <br />
+              <br />
+              Gegenstand dieser Studie ist ein neu entwickeltes, objektives
+              Messinstrument in der Kreativitätsforschung. Anhand verschiedener
+              Aufgabentypen wird Ihr individueller Kreativitätsscore bestimmt.
+              Zusätzlich werden weitere Eigenschaften abgefragt.
+              <br />
+              <br />
+              Bitte lesen Sie sich jede Frage bzw. jede Aufgabe in Ruhe durch
+              und beantworten Sie diese. Es gibt keine richtigen oder falschen
+              Antworten. Die Bearbeitung der Studie wird ca. 30-40 Minuten in
+              Anspruch nehmen.
+              <br />
+              <br />
+              Unter den Teilnehmenden werden Amazon-Gutscheine im Wert von 3 x
+              50 € sowie 5 x 10 € verlost.
+              <br />
+              <br />
+              Die Ergebnisse und Daten dieser Studie werden für
+              wissenschaftliche Veröffentlichungen herangezogen. Die Angaben der
+              einzelnen Teilnehmer werden ausschließlich am Lehrstuhl für
+              Ergonomie der Technischen Universität München analysiert, gemäß
+              der gesetzlichen Bestimmungen vertraulich behandelt und anonym
+              ausgewertet. Durch die anonymisierte Form der Daten können
+              Ergebnisse oder individuelle Antworten nicht auf Sie zurückgeführt
+              werden.
+              <br />
+              <br />
+              Für Rückfragen oder Anmerkungen stehen wir Ihnen gerne zur
+              Verfügung: Julia Büttler (julia.buettler@tum.de)
+              <br />
+              <br />
+              Technische Universität München:
+              <br />
+              Lehrstuhl für Ergonomie
             </p>
             <div className="btn-container">
               <Link to={this.state.link} className="btn">

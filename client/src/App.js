@@ -9,7 +9,6 @@ import { setCurrentUser, logoutUser } from "./actions/authActions";
 import { Provider } from "react-redux";
 import store from "./store";
 
-
 import Landing from "./components/layout/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
@@ -22,6 +21,9 @@ import Finish from "./components/study/Finish";
 import LandingStudy from "./components/study/LandingStudy";
 import StudySequence from "./components/study/StudySequence";
 import Questionnaire from "./components/study/Questionnaire";
+import Post_Questionaire from "./components/study/Post_Questionnaire";
+import APM from "./components/study/APM";
+import ICAA from "./components/study/ICAA";
 
 import "./App.css";
 import SidebarDashboard from "./components/dashboard/SidebarDashboard";
@@ -53,7 +55,6 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div className="App">
-
             {/* Dashboard Routes */}
 
             <Route exact path="/" component={Landing} />
@@ -69,7 +70,6 @@ class App extends Component {
               <Route exact path="/:studyid/:groupid" component={LandingStudy} />
             </Switch>
 
-
             {/* Study Routes */}
 
             {/* <Route path="/:studyid/:groupid/active" component={Tasks} /> */}
@@ -77,8 +77,9 @@ class App extends Component {
             <Route path="/:studyid/:groupid/active" component={StudySequence} />
 
             <Route path="/finished" component={Finish} />
-
-
+            <Route path="/post_questionnaire" component={Post_Questionaire} />
+            <Route path="/apm" component={APM} />
+            <Route path="/icaa" component={ICAA} />
           </div>
         </Router>
       </Provider>
@@ -86,6 +87,3 @@ class App extends Component {
   }
 }
 export default App;
-
-
-

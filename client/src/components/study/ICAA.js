@@ -13,7 +13,7 @@ import { ProgressBar } from "react-step-progress-bar";
 
 import Tasks from "./Tasks";
 
-class Questionnaire extends React.Component {
+class ICAA extends React.Component {
   state = {
     isCompleted: false,
     requiredQ: false,
@@ -69,337 +69,6 @@ class Questionnaire extends React.Component {
     let json = {
       locale: "de",
       pages: [
-        {
-          name: "Demographie",
-          elements: [
-            {
-              type: "text",
-              name: "Alter",
-              title: "Wie alt sind Sie?",
-              isRequired: this.state.requiredQ,
-              validators: [
-                {
-                  type: "numeric",
-                  minValue: 1,
-                  maxValue: 120
-                }
-              ]
-            },
-            {
-              type: "radiogroup",
-              name: "Geschlecht",
-              title: "Welches biologische Geschlecht haben Sie?",
-              isRequired: this.state.requiredQ,
-              choices: [
-                {
-                  value: "0",
-                  text: "Weiblich"
-                },
-                {
-                  value: "1",
-                  text: "Männlich"
-                },
-                {
-                  value: "2",
-                  text: "Divers"
-                }
-              ]
-            },
-            {
-              type: "radiogroup",
-              name: "Abschluss",
-              title:
-                "Welchen höchsten beruflichen Ausbildungs- oder (Fach-)Hochschulabschluss haben Sie?",
-              isRequired: this.state.requiredQ,
-              hasOther: true,
-              choices: [
-                {
-                  value: "0",
-                  text: "Kein Schulabschluss"
-                },
-                {
-                  value: "1",
-                  text: "Hauptschulabschluss"
-                },
-                {
-                  value: "2",
-                  text: "Mittlere Reife"
-                },
-                {
-                  value: "3",
-                  text: "Fachhochschulreife"
-                },
-                {
-                  value: "4",
-                  text: "Abitur"
-                },
-                {
-                  value: "5",
-                  text: "Berufsausbildung"
-                },
-                {
-                  value: "6",
-                  text: "Bachelor"
-                },
-                {
-                  value: "7",
-                  text: "Master / Diplom / Magister"
-                },
-                {
-                  value: "8",
-                  text: "Promotion"
-                },
-                {
-                  value: "9",
-                  text: "Habilitation"
-                }
-              ],
-              otherText: "Anderen"
-            },
-            {
-              type: "radiogroup",
-              name: "Branche",
-              title:
-                "In welchem Bereich würden Sie Ihr Studium/Ihre Ausbildung/Ihren Beruf verorten?",
-              isRequired: this.state.requiredQ,
-              hasOther: true,
-              choices: [
-                {
-                  value: "0",
-                  text: "Agrar- & Forstwissenschaften"
-                },
-                {
-                  value: "1",
-                  text: "Gesellschaftswissenschaften"
-                },
-                {
-                  value: "2",
-                  text: "Informatik & Mathematik"
-                },
-                {
-                  value: "3",
-                  text: "Kunst, Gestaltung & Musik"
-                },
-                {
-                  value: "4",
-                  text: "Medien & Kommunikation"
-                },
-                {
-                  value: "5",
-                  text: "Medizin & Gesundheitswesen"
-                },
-                {
-                  value: "6",
-                  text: "Naturwissenschaften"
-                },
-                {
-                  value: "7",
-                  text: "Sprach- & Kulturwissenschaften"
-                },
-                {
-                  value: "8",
-                  text: "Technik & Ingenieurwesen"
-                },
-                {
-                  value: "9",
-                  text: "Wirtschaft & Recht"
-                }
-              ],
-              otherText: "Anderen"
-            },
-            {
-              type: "radiogroup",
-              name: "Sprachfähigkeit",
-              title: "Wie schätzen Sie Ihre deutsche Sprachfähigkeit ein?",
-              isRequired: this.state.requiredQ,
-              choices: [
-                {
-                  value: "0",
-                  text: "Muttersprache"
-                },
-                {
-                  value: "1",
-                  text: "Niveau A1 (Anfänger)"
-                },
-                {
-                  value: "2",
-                  text: "Niveau A2 (Grundlegende Kenntnisse)"
-                },
-                {
-                  value: "3",
-                  text: "Niveau B1 (Fortgeschrittene Sprachverwendung)"
-                },
-                {
-                  value: "4",
-                  text: "Niveau B2 (Selbstständige Sprachverwendung)"
-                },
-                {
-                  value: "5",
-                  text: "Niveau C1 (Fachkundige Sprachkenntnisse)"
-                },
-                {
-                  value: "6",
-                  text: "Niveau C2 (annähernd muttersprachliche Kenntnisse)"
-                }
-              ]
-            },
-            {
-              type: "radiogroup",
-              name: "Legasthenie",
-              title:
-                "Haben Sie eine Lese- und Rechtschreibschwäche oder Legasthenie (Entwicklungsstörung beim Erlernen des Lesens und Rechtschreibens von Wörter)?",
-              isRequired: this.state.requiredQ,
-              choices: [
-                {
-                  value: "0",
-                  text: "Nein"
-                },
-                {
-                  value: "1",
-                  text: "Ja"
-                }
-              ]
-            },
-            {
-              type: "matrix",
-              name: "Offenheit",
-              title: "Inwieweit treffen die folgenden Aussagen auf Sie zu?",
-              isRequired: this.state.requiredQ,
-              columns: [
-                {
-                  value: "1",
-                  text: "trifft überhaupt nicht zu"
-                },
-                {
-                  value: "2",
-                  text: "trifft eher nicht zu"
-                },
-                {
-                  value: "3",
-                  text: "weder noch"
-                },
-                {
-                  value: "4",
-                  text: "eher zutreffend"
-                },
-                {
-                  value: "5",
-                  text: " trifft voll und ganz zu"
-                }
-              ],
-              rows: [
-                {
-                  value: "Row 1",
-                  text: "Ich habe nur wenig künstlerisches Interesse."
-                },
-                {
-                  value: "Row 2",
-                  text:
-                    "Ich habe eine aktive Vorstellungskraft, bin fantasievoll."
-                }
-              ]
-            },
-            {
-              type: "matrix",
-              name: "Spiele",
-              title: "Wie gut sind Ihre Fähigkeiten in den folgenden Spielen?",
-              isRequired: this.state.requiredQ,
-              columns: [
-                {
-                  value: "0",
-                  text: "ich kenne das Spiel nicht"
-                },
-                {
-                  value: "1",
-                  text: "nicht gut"
-                },
-                {
-                  value: "2",
-                  text: "wenig gut"
-                },
-                {
-                  value: "3",
-                  text: "mittelmäßig gut"
-                },
-                {
-                  value: "4",
-                  text: "ziemlich gut"
-                },
-                {
-                  value: "5",
-                  text: "sehr gut"
-                }
-              ],
-              rows: ["Tetris", "Ubongo", "Scrabble"]
-            },
-            {
-              type: "html",
-              name: "info",
-              html:
-                "<table><body><row><td><b>Ubongo:</b></td><td><img src='/images/Ubongo.png' width='200px' /></td><td><b>Scrabble:</b></td><td><img src='/images/Scrabble.png' width='200px' /></td></row></body></table>"
-            }
-          ]
-        },
-        {
-          name: "Schlussfolgerndes Denken",
-          elements: [
-            {
-              type: "html",
-              name: "info_Item",
-              html:
-                "<img src='/images/Item_1_0.png' width='600' alt='Test Item 1' align='middle'/>"
-            },
-            {
-              type: "html",
-              name: "info_Anweisung",
-              html:
-                "Bitte klicken Sie auf das Element, welches das oben dargestellte Bild korrekt ergänzt."
-            },
-            {
-              type: "imagepicker",
-              name: "APM_1",
-              title: {
-                de: " "
-              },
-              isRequired: this.state.requiredQ,
-              colCount: 4,
-              choices: [
-                {
-                  value: "Element1",
-                  imageLink: "/images/Item_1_1.png"
-                },
-                {
-                  value: "Element2",
-                  imageLink: "/images/Item_1_2.png"
-                },
-                {
-                  value: "Element3",
-                  imageLink: "/images/Item_1_3.png"
-                },
-                {
-                  value: "Element4",
-                  imageLink: "/images/Item_1_4.png"
-                },
-                {
-                  value: "Element5",
-                  imageLink: "/images/Item_1_5.png"
-                },
-                {
-                  value: "Element6",
-                  imageLink: "/images/Item_1_6.png"
-                },
-                {
-                  value: "Element7",
-                  imageLink: "/images/Item_1_7.png"
-                },
-                {
-                  value: "Element8",
-                  imageLink: "/images/Item_1_8.png"
-                }
-              ]
-            }
-          ]
-        },
         {
           name: "Kreative Aktivitäten",
           elements: [
@@ -1038,38 +707,6 @@ class Questionnaire extends React.Component {
               ]
             }
           ]
-        },
-        {
-          name: "Kreative Leistungen",
-          elements: [
-            {
-              type: "multipletext",
-              name: "Kreative_Leistungen",
-              title: {
-                de:
-                  "Bitte nennen Sie nun die drei kreativsten Leistungen/Errungenschaften Ihres Lebens. Wählen Sie jene Leistungen aus die einer anderen Person am ehesten ermöglichen Ihre Kreativität einzuschätzen. Ihre Antworten können auch aus anderen Bereichen als denen im vorangehenden Fragebogen kommen. Nennen Sie erst Ihre kreativste Leistung, dann die zweit-kreativste Leistung, und so weiter. Beschreiben Sie bitte jede Leistung mit einem kurzen prägnanten Satz in den entsprechenden untenstehenden Feldern. Wenn es weniger als drei relevante Leistungen geben sollte, lassen Sie die verbleibenden Felder einfach frei."
-              },
-              isRequired: this.state.requiredQ,
-              items: [
-                {
-                  name: "text1",
-                  title: {
-                    de: "1."
-                  }
-                },
-                {
-                  name: "text2",
-                  title: {
-                    de: "2."
-                  }
-                },
-                {
-                  name: "text3",
-                  title: "3."
-                }
-              ]
-            }
-          ]
         }
       ],
       showPrevButton: false,
@@ -1093,8 +730,8 @@ class Questionnaire extends React.Component {
         <div className="questionnaire-description">
           <div className="wrapper">
             <div className="task-heading">
-              <span className="task-number-questionnaire">1</span>
-              <h1 className="questionnaire-heading">Fragebogen</h1>
+              <span className="task-number-questionnaire">3</span>
+              <h1 className="questionnaire-heading">Kreative Aktivitäten</h1>
             </div>
             <p className="questionnaire-task-description">
               Bitte beantworten Sie die folgenden Fragen.
@@ -1109,9 +746,9 @@ class Questionnaire extends React.Component {
       </div>
     ) : null;
 
-    var onCompleteComponent = this.state.isCompleted ? (
-      <Tasks tasks={this.props.tasks} />
-    ) : null;
+    var onCompleteComponent = this.state.isCompleted
+      ? this.props.history.push("/post_questionnaire")
+      : null;
 
     return (
       <div>
@@ -1124,4 +761,4 @@ class Questionnaire extends React.Component {
   }
 }
 
-export default Questionnaire;
+export default ICAA;

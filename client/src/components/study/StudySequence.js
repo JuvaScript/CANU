@@ -4,6 +4,7 @@ import axios from "axios";
 
 import Tasks from "./Tasks";
 import Questionnaire from "./Questionnaire";
+import APM from "./APM";
 
 class StudySequence extends React.Component {
   state = {
@@ -44,7 +45,7 @@ class StudySequence extends React.Component {
     // return <div>{this.randomize(arr)}</div>;
 
     return (
-      <Questionnaire
+      <APM
         incrementSequenceCounter={this.incrementSequenceCounter}
         count={this.state.count}
         total={this.state.tasks.length + 1}
