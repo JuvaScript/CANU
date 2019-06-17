@@ -5,7 +5,6 @@ import React from 'react';
 import axios from 'axios';
 import NewWords from './NewWords';
 import Blocks from './Blocks';
-import Questionnaire from './Questionnaire';
 
 class Tasks extends React.Component {
     state = {

@@ -3,7 +3,6 @@ import React from "react";
 import axios from "axios";
 
 import Tasks from "./Tasks";
-import Questionnaire from "./Questionnaire";
 import APM from "./APM";
 
 class StudySequence extends React.Component {
@@ -48,7 +47,7 @@ class StudySequence extends React.Component {
       <APM
         incrementSequenceCounter={this.incrementSequenceCounter}
         count={this.state.count}
-        total={this.state.tasks.length + 1}
+        total={this.state.tasks.length + 4}
         tasks={this.state.tasks}
       />
     );

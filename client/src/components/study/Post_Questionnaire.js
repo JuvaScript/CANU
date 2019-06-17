@@ -380,7 +380,7 @@ class Post_Questionnaire extends React.Component {
               name: "Email_Adresse",
               title: {
                 de:
-                  "Hinterlassen Sie uns Ihre E-Mail-Adresse, falls Sie am Gewinnspiel teilnehmen möchten."
+                  "Hinterlassen Sie uns Ihre E-Mail-Adresse, falls Sie an dem Gewinnspiel teilnehmen möchten."
               }
             },
             {
@@ -412,7 +412,7 @@ class Post_Questionnaire extends React.Component {
               visibleIf: "{Zukunftsproband} = 1",
               html: {
                 de:
-                  "<br>Bitte tragen Sie oben Ihre E-Mail-Adresse ein, damit wir Sie wieder erreichen können.<br>Um die Daten der beiden Erhebungszeitpunkte personenbezogen zuordnen zu können und dabei dennoch Ihre Anonymität zu wahren, verwenden wir statt Ihres Namens einen anonymen persönlichen Code.<br><br>1. Bitte geben Sie in das Feld unten zuerst die ersten zwei Buchstaben des Vornamens Ihrer Mutter ein.<br>2. Bitte geben Sie nun die ersten zwei Ziffern des Geburtstages Ihrer Mutter ein.<br>3. Bitte geben Sie abschließend die ersten zwei Ziffern Ihres Geburtstages ein.<br><br><b>Beispiel:</b> Heißt Ihre Mutter <b>Su</b>sanne, ist sie am <b>08</b>.01.1960 geboren und Sie sind am <b>23</b>.01.1990 geboren, so lautet Ihr Code: <b>SU0823</b>"
+                  "<br>Bitte tragen Sie oben Ihre E-Mail-Adresse ein, damit wir Sie wieder erreichen können (Sie wird getrennt von Ihren anderen Angaben abgespeichert).<br>Um die Daten der beiden Erhebungszeitpunkte personenbezogen zuordnen zu können und dabei dennoch Ihre Anonymität zu wahren, verwenden wir statt Ihres Namens einen anonymen persönlichen Code.<br><br>1. Bitte geben Sie in das Feld unten zuerst die ersten zwei Buchstaben des Vornamens Ihrer Mutter ein.<br>2. Bitte geben Sie nun die ersten zwei Ziffern des Geburtstages Ihrer Mutter ein.<br>3. Bitte geben Sie abschließend die ersten zwei Ziffern Ihres Geburtstages ein.<br><br><b>Beispiel:</b> Heißt Ihre Mutter <b>Su</b>sanne, ist sie am <b>08</b>.01.1960 geboren und Sie sind am <b>23</b>.01.1990 geboren, so lautet Ihr Code: <b>SU0823</b>"
               }
             },
             {
@@ -447,7 +447,7 @@ class Post_Questionnaire extends React.Component {
     var surveyRender = !this.state.isCompleted ? (
       <div>
         <ProgressBar
-          percent={((this.props.count + 1) / this.props.total) * 100}
+          percent={(this.props.total / this.props.total) * 100}
           filledBackground="linear-gradient(to right,rgb(255, 187, 153), rgb(255, 134, 73))"
         />
 

@@ -20,7 +20,6 @@ import Tasks from "./components/study/Tasks";
 import Finish from "./components/study/Finish";
 import LandingStudy from "./components/study/LandingStudy";
 import StudySequence from "./components/study/StudySequence";
-import Questionnaire from "./components/study/Questionnaire";
 import Post_Questionaire from "./components/study/Post_Questionnaire";
 import APM from "./components/study/APM";
 import ICAA from "./components/study/ICAA";

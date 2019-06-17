@@ -723,7 +723,7 @@ class ICAA extends React.Component {
     var surveyRender = !this.state.isCompleted ? (
       <div>
         <ProgressBar
-          percent={((this.props.count + 1) / this.props.total) * 100}
+          percent={((this.props.count + 1) / this.props.total + 3) * 100}
           filledBackground="linear-gradient(to right,rgb(255, 187, 153), rgb(255, 134, 73))"
         />
 

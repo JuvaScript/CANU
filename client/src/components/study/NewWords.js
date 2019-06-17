@@ -271,7 +271,7 @@ class NewWords extends Component {
     return (
       <div>
         <ProgressBar
-          percent={((this.props.counter + 2) / (this.props.total + 1)) * 100}
+          percent={((this.props.counter + 2) / (this.props.total + 4)) * 100}
           filledBackground="linear-gradient(to right, rgb(255, 187, 153), rgb(255, 134, 73))"
         />
         <div className="newWords">
@@ -283,8 +283,8 @@ class NewWords extends Component {
               </div>
               <p className="newWords-task-description">
                 Versuchen Sie, so viele Buchstaben wie möglich zu nutzen und
-                dabei Wörter zu bilden, die möglich sind, aber nicht jedem
-                einfallen.
+                dabei deutsche Wörter zu bilden, die möglich sind, aber nicht
+                jedem einfallen.
               </p>
             </div>
           </div>
