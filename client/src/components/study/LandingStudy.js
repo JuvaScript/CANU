@@ -217,16 +217,17 @@ class LandingStudy extends React.Component {
               Lorenz Prasch, M.Sc.
               <br />
               <br />
-              Gegenstand dieser Studie ist ein neu entwickeltes, objektives
-              Messinstrument in der Kreativitätsforschung. Anhand verschiedener
-              Aufgabentypen wird Ihr individueller Kreativitätsscore bestimmt.
-              Zusätzlich werden weitere Eigenschaften abgefragt.
+              Gegenstand dieser Studie ist ein neu entwickeltes Messinstrument
+              in der Kreativitätsforschung. Anhand verschiedener Aufgabentypen
+              wird ein Kreativitätsscore bestimmt. Zusätzlich werden weitere
+              Eigenschaften abgefragt.
               <br />
               <br />
               Bitte lesen Sie sich jede Frage bzw. jede Aufgabe in Ruhe durch
-              und beantworten Sie diese. Es gibt keine richtigen oder falschen
-              Antworten. Die Bearbeitung der Studie wird ca. 30-40 Minuten in
-              Anspruch nehmen.
+              und beantworten Sie diese. Die Datenerhebung gilt ausschließlich
+              der Evaluation des Messinstruments. Sie als Proband können nichts
+              falsch machen. Die Bearbeitung der Studie wird ca. 30-40 Minuten
+              in Anspruch nehmen.
               <br />
               <br />
               Unter den Teilnehmenden werden Amazon-Gutscheine im Wert von 3 x
@@ -235,16 +236,26 @@ class LandingStudy extends React.Component {
               <br />
               Die Ergebnisse und Daten dieser Studie werden für
               wissenschaftliche Veröffentlichungen herangezogen. Die Angaben der
-              einzelnen Teilnehmer werden ausschließlich am Lehrstuhl für
-              Ergonomie der Technischen Universität München analysiert, gemäß
-              der gesetzlichen Bestimmungen vertraulich behandelt und anonym
-              ausgewertet. Durch die anonymisierte Form der Daten können
-              Ergebnisse oder individuelle Antworten nicht auf Sie zurückgeführt
-              werden.
+              einzelnen Teilnehmer werden in pseudonymisierter Form
+              ausschließlich am Lehrstuhl für Ergonomie der Technischen
+              Universität München analysiert, gemäß der gesetzlichen
+              Bestimmungen vertraulich behandelt und anonym ausgewertet. Durch
+              die anonymisierte Form der Daten lassen Ergebnisse oder
+              individuelle Antworten keinerlei Rückschlüsse auf Sie als
+              Einzelperson zu. Mittels eines individuellen Codes, den Sie später
+              im Verlauf des Versuchs erstellen, können Sie den Lehrstuhl
+              jederzeit kontaktieren und eine Löschung Ihrer Daten verlangen.
+              Ihre Angaben werden im Rahmen der Richtlinien zur Sicherung guter
+              wissenschaftlicher Praxis für mindestens zehn Jahre archiviert.
+              <br />
+              <br />
+              Mit Ihrer Teilnahme stimmen Sie der Erhebung und Verarbeitung
+              Ihrer persönlichen Daten im Sinne der hier bereitgestellten
+              Informationen zu.
               <br />
               <br />
               Für Rückfragen oder Anmerkungen stehen wir Ihnen gerne zur
-              Verfügung: Julia Büttler (julia.buettler@tum.de)
+              Verfügung: Lorenz Prasch (lorenz.prasch@tum.de)
               <br />
               <br />
               Technische Universität München:

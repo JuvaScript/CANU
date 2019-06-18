@@ -61,11 +61,6 @@ class Post_Questionnaire extends React.Component {
     // var model = new Survey.Model(this.json);
 
     console.log(this.props.count + 1, this.props.total);
-    // Anpassung der Farbe notwendig, wenn APM als Teil des Fragebogens umgesetzt werden
-    // var defaultThemeColors = Survey.StylesManager.ThemeColors["default"];
-    // defaultThemeColors["$main-color"] = "#f8f8f8";
-    // defaultThemeColors["$main-hover-color"] = "#f55000";
-    // Survey.StylesManager.applyTheme();
     let json = {
       locale: "de",
       pages: [
@@ -140,8 +135,7 @@ class Post_Questionnaire extends React.Component {
             {
               type: "radiogroup",
               name: "Abschluss",
-              title:
-                "Welchen höchsten beruflichen Ausbildungs- oder (Fach-)Hochschulabschluss haben Sie?",
+              title: "Wie ist Ihr höchster Bildungsabschluss?",
               isRequired: this.state.requiredQ,
               hasOther: true,
               choices: [
@@ -251,27 +245,27 @@ class Post_Questionnaire extends React.Component {
                 },
                 {
                   value: "1",
-                  text: "Niveau A1 (Anfänger)"
+                  text: "Niveau C2 (annähernd muttersprachliche Kenntnisse)"
                 },
                 {
                   value: "2",
-                  text: "Niveau A2 (Grundlegende Kenntnisse)"
-                },
-                {
-                  value: "3",
-                  text: "Niveau B1 (Fortgeschrittene Sprachverwendung)"
-                },
-                {
-                  value: "4",
-                  text: "Niveau B2 (Selbstständige Sprachverwendung)"
-                },
-                {
-                  value: "5",
                   text: "Niveau C1 (Fachkundige Sprachkenntnisse)"
                 },
                 {
+                  value: "3",
+                  text: "Niveau B2 (Selbstständige Sprachverwendung)"
+                },
+                {
+                  value: "4",
+                  text: "Niveau B1 (Fortgeschrittene Sprachverwendung)"
+                },
+                {
+                  value: "5",
+                  text: "Niveau A2 (Grundlegende Kenntnisse)"
+                },
+                {
                   value: "6",
-                  text: "Niveau C2 (annähernd muttersprachliche Kenntnisse)"
+                  text: "Niveau A1 (Anfänger)"
                 }
               ]
             },
@@ -334,7 +328,8 @@ class Post_Questionnaire extends React.Component {
             {
               type: "matrix",
               name: "Spiele",
-              title: "Wie gut sind Ihre Fähigkeiten in den folgenden Spielen?",
+              title:
+                "Wie gut schätzen Sie Ihre Fähigkeiten in den folgenden Spielen ein?",
               isRequired: this.state.requiredQ,
               columns: [
                 {
@@ -343,23 +338,23 @@ class Post_Questionnaire extends React.Component {
                 },
                 {
                   value: "1",
-                  text: "nicht gut"
+                  text: "schlecht"
                 },
                 {
                   value: "2",
-                  text: "wenig gut"
+                  text: "eher schlecht"
                 },
                 {
                   value: "3",
-                  text: "mittelmäßig gut"
+                  text: "mittel"
                 },
                 {
                   value: "4",
-                  text: "ziemlich gut"
+                  text: "eher gut"
                 },
                 {
                   value: "5",
-                  text: "sehr gut"
+                  text: "gut"
                 }
               ],
               rows: ["Tetris", "Ubongo", "Scrabble"]
@@ -384,50 +379,25 @@ class Post_Questionnaire extends React.Component {
               }
             },
             {
-              type: "radiogroup",
-              name: "Zukunftsproband",
-              title: {
-                de:
-                  "Um nachvollziehen zu können, inwieweit sich bei Ihnen bestimmte Merkmale im Laufe der Zeit verändern, würden wir Sie in einigen Monaten gerne noch einmal befragen. Stehen Sie hierfür zur Verfügung?"
-              },
-              isRequired: this.state.requiredQ,
-              choices: [
-                {
-                  value: "1",
-                  text: {
-                    de: "Ja"
-                  }
-                },
-                {
-                  value: "0",
-                  text: {
-                    de: "Nein"
-                  }
-                }
-              ]
-            },
-            {
               type: "html",
               name: "Info_Code",
-              visibleIf: "{Zukunftsproband} = 1",
               html: {
                 de:
-                  "<br>Bitte tragen Sie oben Ihre E-Mail-Adresse ein, damit wir Sie wieder erreichen können (Sie wird getrennt von Ihren anderen Angaben abgespeichert).<br>Um die Daten der beiden Erhebungszeitpunkte personenbezogen zuordnen zu können und dabei dennoch Ihre Anonymität zu wahren, verwenden wir statt Ihres Namens einen anonymen persönlichen Code.<br><br>1. Bitte geben Sie in das Feld unten zuerst die ersten zwei Buchstaben des Vornamens Ihrer Mutter ein.<br>2. Bitte geben Sie nun die ersten zwei Ziffern des Geburtstages Ihrer Mutter ein.<br>3. Bitte geben Sie abschließend die ersten zwei Ziffern Ihres Geburtstages ein.<br><br><b>Beispiel:</b> Heißt Ihre Mutter <b>Su</b>sanne, ist sie am <b>08</b>.01.1960 geboren und Sie sind am <b>23</b>.01.1990 geboren, so lautet Ihr Code: <b>SU0823</b>"
+                  "<br>Um Ihre Anonymität zu wahren und Ihnen dennoch die Möglichkeit zu geben eine Löschung Ihrer Daten zu beantragen, verwenden wir  einen anonymen persönlichen Code.<br><br>1. Bitte geben Sie in das Feld unten zuerst die ersten zwei Buchstaben des Vornamens Ihrer Mutter ein.<br>2. Bitte geben Sie nun die ersten zwei Ziffern des Geburtstages Ihrer Mutter ein.<br>3. Bitte geben Sie abschließend die ersten zwei Ziffern Ihres Geburtstages ein.<br><br><b>Beispiel:</b> Heißt Ihre Mutter <b>Su</b>sanne, ist sie am <b>08</b>.01.1960 geboren und Sie sind am <b>23</b>.01.1990 geboren, so lautet Ihr Code: <b>SU0823</b>"
               }
             },
             {
               type: "text",
               name: "Code",
               title: "",
-              isRequired: true,
-              visibleIf: "{Zukunftsproband} = 1"
+              isRequired: true
             },
             {
               type: "html",
               name: "Info_Danke",
               html: {
                 de:
-                  "<br>Für Rückfragen oder Anmerkungen stehen wir Ihnen gerne unter der E-Mail-Adresse julia.buettler@tum.de zur Verfügung."
+                  "<br>Für Rückfragen oder Anmerkungen stehen wir Ihnen gerne unter der E-Mail-Adresse lorenz.prasch@tum.de zur Verfügung."
               }
             }
           ]
