@@ -29,6 +29,10 @@ class ICAA extends React.Component {
   onCompleteComponent = survey => {
     this.setState({ isCompleted: true });
 
+    console.log("completetriggered")
+    // Änderung
+    this.props.incrementSequenceCounter();
+
     console.log(survey.data);
   };
 
@@ -717,15 +721,15 @@ class ICAA extends React.Component {
 
     var surveyRender = !this.state.isCompleted ? (
       <div>
-        <ProgressBar
+        {/* <ProgressBar
           percent={((this.props.count + 1) / this.props.total + 3) * 100}
           filledBackground="linear-gradient(to right,rgb(255, 187, 153), rgb(255, 134, 73))"
-        />
+        /> */}
 
         <div className="questionnaire-description">
           <div className="wrapper">
             <div className="task-heading">
-              <span className="task-number-questionnaire">3</span>
+              <span className="task-number-questionnaire">{this.props.index + 1}</span>
               <h1 className="questionnaire-heading">Kreative Aktivitäten</h1>
             </div>
             <p className="questionnaire-task-description">
@@ -741,14 +745,15 @@ class ICAA extends React.Component {
       </div>
     ) : null;
 
-    var onCompleteComponent = this.state.isCompleted
-      ? this.props.history.push("/post_questionnaire")
-      : null;
+    // var onCompleteComponent = this.state.isCompleted
+    //   ? this.props.incrementSequenceCounter()
+    //   // ? this.props.history.push("/post_questionnaire")
+    //   : null;
 
     return (
       <div>
         {surveyRender}
-        {onCompleteComponent}
+        {/* {onCompleteComponent} */}
 
         {/* <Survey.Survey model={model} onComplete={this.onComplete} /> */}
       </div>
