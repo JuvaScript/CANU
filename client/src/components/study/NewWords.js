@@ -308,7 +308,7 @@ class NewWords extends Component {
                     disabled={this.state.values.every(el => el.length === 0)}
                     onClick={this.handleNext}
                   >
-                    Nächster Durchgang
+                    Nächste Aufgabe
                   </button>
                 )}
               </form>
