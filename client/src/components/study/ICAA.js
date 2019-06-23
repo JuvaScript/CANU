@@ -29,7 +29,7 @@ class ICAA extends React.Component {
   onCompleteComponent = survey => {
     this.setState({ isCompleted: true });
 
-    console.log("completetriggered")
+    console.log("completetriggered");
     // Änderung
     this.props.incrementSequenceCounter();
 
@@ -65,6 +65,11 @@ class ICAA extends React.Component {
     // var model = new Survey.Model(this.json);
 
     console.log(this.props.count + 1, this.props.total);
+
+    var defaultThemeColors = Survey.StylesManager.ThemeColors["default"];
+    defaultThemeColors["$main-color"] = "#3200ff";
+    defaultThemeColors["$main-hover-color"] = "#f55000";
+    Survey.StylesManager.applyTheme();
     let json = {
       locale: "de",
       pages: [
@@ -729,7 +734,9 @@ class ICAA extends React.Component {
         <div className="questionnaire-description">
           <div className="wrapper">
             <div className="task-heading">
-              <span className="task-number-questionnaire">{this.props.index + 1}</span>
+              <span className="task-number-questionnaire">
+                {this.props.index + 1}
+              </span>
               <h1 className="questionnaire-heading">Kreative Aktivitäten</h1>
             </div>
             <p className="questionnaire-task-description">
