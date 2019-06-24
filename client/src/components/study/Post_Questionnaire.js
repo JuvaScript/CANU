@@ -61,6 +61,11 @@ class Post_Questionnaire extends React.Component {
     // var model = new Survey.Model(this.json);
 
     console.log(this.props.count + 1, this.props.total);
+
+    var defaultThemeColors = Survey.StylesManager.ThemeColors["default"];
+    defaultThemeColors["$main-color"] = "#3200ff";
+    defaultThemeColors["$main-hover-color"] = "#f55000";
+    Survey.StylesManager.applyTheme();
     let json = {
       locale: "de",
       pages: [
@@ -442,8 +447,8 @@ class Post_Questionnaire extends React.Component {
 
     var onCompleteComponent = this.state.isCompleted
       ? this.props.incrementSequenceCounter()
-      // this.props.history.push("/finished")
-      : null;
+      : // this.props.history.push("/finished")
+        null;
 
     return (
       <div>
