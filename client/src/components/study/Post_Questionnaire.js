@@ -62,18 +62,11 @@ class Post_Questionnaire extends React.Component {
 
     console.log(this.props.count + 1, this.props.total);
 
-<<<<<<< HEAD
-=======
-    // Anpassung der Farbe notwendig, wenn APM als Teil des Fragebogens umgesetzt werden
->>>>>>> master
     var defaultThemeColors = Survey.StylesManager.ThemeColors["default"];
     defaultThemeColors["$main-color"] = "#3200ff";
     defaultThemeColors["$main-hover-color"] = "#f55000";
     Survey.StylesManager.applyTheme();
-<<<<<<< HEAD
-=======
 
->>>>>>> master
     let json = {
       locale: "de",
       pages: [
@@ -403,7 +396,15 @@ class Post_Questionnaire extends React.Component {
               type: "text",
               name: "Code",
               title: "",
-              isRequired: true
+              isRequired: true,
+              validators: [
+                {
+                  type: "text",
+                  minLength: 6,
+                  maxLength: 6,
+                  allowDigits: true
+                }
+              ]
             },
             {
               type: "radiogroup",

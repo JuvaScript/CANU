@@ -66,18 +66,11 @@ class ICAA extends React.Component {
 
     console.log(this.props.count + 1, this.props.total);
 
-<<<<<<< HEAD
-=======
-    // Anpassung der Farbe notwendig, wenn APM als Teil des Fragebogens umgesetzt werden
->>>>>>> master
     var defaultThemeColors = Survey.StylesManager.ThemeColors["default"];
     defaultThemeColors["$main-color"] = "#3200ff";
     defaultThemeColors["$main-hover-color"] = "#f55000";
     Survey.StylesManager.applyTheme();
-<<<<<<< HEAD
-=======
 
->>>>>>> master
     let json = {
       locale: "de",
       pages: [

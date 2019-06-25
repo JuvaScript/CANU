@@ -10,8 +10,7 @@ import { ProgressBar } from "react-step-progress-bar";
 // import Countdown from 'react-countdown-now';
 import Countdown from "./Countdown";
 
-
-import ReactTimeout from 'react-timeout'
+import ReactTimeout from "react-timeout";
 
 import axios from "axios";
 
@@ -40,7 +39,7 @@ class NewWords extends Component {
     axios
       .get(
         `/solution/${this.props.match.params.studyid}/${
-        this.props.match.params.groupid
+          this.props.match.params.groupid
         }`
       )
       .then(res => {
@@ -174,7 +173,7 @@ class NewWords extends Component {
     });
 
     // helper function to get nth index of a character that exists multiple times
-    Array.prototype.nthIndexOf = function (e, n) {
+    Array.prototype.nthIndexOf = function(e, n) {
       var index = -1;
       for (var i = 0, len = this.length; i < len; i++) {
         if (i in this && e === this[i] && !--n) {
@@ -201,7 +200,7 @@ class NewWords extends Component {
       if (!mappedChars.includes(char)) {
         charIndex = fullChars.indexOf(char);
       } else {
-        charIndex = fullChars.nthIndexOf(char, count + 1)
+        charIndex = fullChars.nthIndexOf(char, count + 1);
       }
 
       mappedChars.push(char);
@@ -240,48 +239,7 @@ class NewWords extends Component {
     axios
       .post(
         `/solution/${this.props.match.params.studyid}/${
-        this.props.match.params.groupid
-        }`,
-        solutionObject
-      )
-      .then(res => {
-        console.log(res.data);
-      })
-      .catch(err => {
-        console.log(err.response);
-      });
-
-    let { counter, total } = this.props;
-
-    // push to end page if all tasks are completed
-    if (counter === total - 1) {
-      // this.props.history.push("/icaa");
-      this.props.incrementSequenceCounter();
-    } else {
-      this.props.incrementCounter();
-
-      // reset input values
-      this.setState({
-        values: [""]
-      });
-    }
-  }
-
-  handleNext = e => {
-    e.preventDefault();
-
-    // create solution object based on current state
-    const solutionObject = {
-      solution: this.state.values.join().toLowerCase(),
-      unused: this.state.allowedChars.join().toLowerCase(),
-      task: this.state.taskID
-    };
-
-    // post new solution to server
-    axios
-      .post(
-        `/solution/${this.props.match.params.studyid}/${
-        this.props.match.params.groupid
+          this.props.match.params.groupid
         }`,
         solutionObject
       )
@@ -308,6 +266,46 @@ class NewWords extends Component {
     }
   };
 
+  handleNext = e => {
+    e.preventDefault();
+
+    // create solution object based on current state
+    const solutionObject = {
+      solution: this.state.values.join().toLowerCase(),
+      unused: this.state.allowedChars.join().toLowerCase(),
+      task: this.state.taskID
+    };
+
+    // post new solution to server
+    axios
+      .post(
+        `/solution/${this.props.match.params.studyid}/${
+          this.props.match.params.groupid
+        }`,
+        solutionObject
+      )
+      .then(res => {
+        console.log(res.data);
+      })
+      .catch(err => {
+        console.log(err.response);
+      });
+
+    let { counter, total } = this.props;
+
+    // push to end page if all tasks are completed
+    if (counter === total - 1) {
+      // this.props.history.push("/icaa");
+      this.props.incrementSequenceCounter();
+    } else {
+      this.props.incrementCounter();
+
+      // reset input values
+      this.setState({
+        values: [""]
+      });
+    }
+  };
 
   render() {
     console.log(this.props.counter + 1, this.props.total + 1);
@@ -321,7 +319,9 @@ class NewWords extends Component {
           <div className="newWords-description">
             <div className="wrapper">
               <div className="task-heading">
-                <span className="task-number-newWords">{this.props.index + 1}</span>
+                <span className="task-number-newWords">
+                  {this.props.index + 1}
+                </span>
                 <h1 className="newWords-heading">Neue Wörter</h1>
               </div>
               <p className="newWords-task-description">
@@ -337,7 +337,6 @@ class NewWords extends Component {
             /> */}
           </div>
 
-
           <div className="container-newWords">
             <div className="word-container">{this.renderWords()}</div>
             <div className="input-container">
@@ -352,23 +351,14 @@ class NewWords extends Component {
                     Aufgabe abschließen
                   </button>
                 ) : (
-<<<<<<< HEAD
-                    <button
-                      className="next-btn"
-                      disabled={this.state.values.every(el => el.length === 0)}
-                      onClick={this.handleNext}
-                    >
-                      Nächster Durchgang
-=======
                   <button
                     className="next-btn"
                     disabled={this.state.values.every(el => el.length === 0)}
                     onClick={this.handleNext}
                   >
                     Nächste Aufgabe
->>>>>>> master
                   </button>
-                  )}
+                )}
               </form>
             </div>
           </div>
