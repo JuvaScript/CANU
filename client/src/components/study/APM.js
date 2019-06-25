@@ -29,6 +29,10 @@ class APM extends React.Component {
   onCompleteComponent = survey => {
     this.setState({ isCompleted: true });
 
+    console.log("completetriggered")
+    //Änderung
+    this.props.incrementSequenceCounter();
+
     console.log(survey.data);
   };
 
@@ -120,15 +124,15 @@ class APM extends React.Component {
 
     var surveyRender = !this.state.isCompleted ? (
       <div>
-        <ProgressBar
+        {/* <ProgressBar
           percent={((this.props.count + 1) / this.props.total) * 100}
           filledBackground="linear-gradient(to right,rgb(255, 187, 153), rgb(255, 134, 73))"
-        />
+        /> */}
 
         <div className="questionnaire-description">
           <div className="wrapper">
             <div className="task-heading">
-              <span className="task-number-questionnaire">2</span>
+              <span className="task-number-questionnaire">{this.props.index + 1}</span>
               <h1 className="questionnaire-heading">
                 Schlussfolgerndes Denken
               </h1>
@@ -146,14 +150,15 @@ class APM extends React.Component {
       </div>
     ) : null;
 
-    var onCompleteComponent = this.state.isCompleted ? (
-      <Tasks tasks={this.props.tasks} />
-    ) : null;
+    // var onCompleteComponent = this.state.isCompleted ? (
+    //   this.props.incrementSequenceCounter()
+    //   // <Tasks tasks={this.props.tasks} />
+    // ) : null;
 
     return (
       <div>
         {surveyRender}
-        {onCompleteComponent}
+        {/* {onCompleteComponent} */}
 
         {/* <Survey.Survey model={model} onComplete={this.onComplete} /> */}
       </div>

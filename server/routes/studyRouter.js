@@ -285,7 +285,7 @@ studyRouter.route('/:userId/:studyId')
                 let fillUpLink = function (study) {
                   return new Promise(function (resolve, reject) {
                     study.groups.forEach(function (item) {
-                      study.study_link.push('www.creativity.lfe.mw.tum/' + study._id + '/' + item._id);
+                      study.study_link.push('www.creativity.lfe.mw.tum.de/' + study._id + '/' + item._id);
                       //console.log(item)
                     });
                     resolve(study);

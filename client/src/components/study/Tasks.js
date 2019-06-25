@@ -1,6 +1,7 @@
 // Tasks Component for handling individual study sequence
 
 import React from 'react';
+import { withRouter } from "react-router";
 
 import axios from 'axios';
 import NewWords from './NewWords';
@@ -12,20 +13,20 @@ class Tasks extends React.Component {
         tasks: []
     }
 
-    // componentDidMount() {
+    componentDidMount() {
 
-    //     // get study and group specific tasks
-    //     axios.get(`/solution/${this.props.match.params.studyid}/${this.props.match.params.groupid}`)
-    //         .then(res => {
-    //             this.setState({
-    //                 tasks: res.data,
-    //             });
-    //         })
-    //         .catch(err => {
-    //             console.log(err);
-    //         })
+        // get study and group specific tasks
+        axios.get(`/solution/${this.props.match.params.studyid}/${this.props.match.params.groupid}`)
+            .then(res => {
+                this.setState({
+                    tasks: res.data,
+                });
+            })
+            .catch(err => {
+                console.log(err);
+            })
 
-    // }
+    }
 
     // method to be passed to child components to externally update tasks counter
     incrementCounter = () => {
@@ -38,21 +39,21 @@ class Tasks extends React.Component {
 
     render() {
         console.log(this.props)
-        if (this.props.tasks.length === 0) {
+        if (this.state.tasks.length === 0) {
             return <div></div>
         }
         // if (this.state.tasks.length === 0) {
         //     return <Questionnaire />
         // }
         else {
-            if (this.props.tasks[this.state.counter].task_type === 'Tetris') {
-                return <Blocks counter={this.state.counter} total={this.props.tasks.length} tasks={this.props.tasks} incrementCounter={this.incrementCounter} />
-            } else if (this.props.tasks[this.state.counter].task_type === 'Neue_Wörter') {
-                return <NewWords counter={this.state.counter} total={this.props.tasks.length} tasks={this.props.tasks} incrementCounter={this.incrementCounter} />
+            if (this.state.tasks[this.state.counter].task_type === 'Tetris') {
+                return <Blocks counter={this.state.counter} total={this.state.tasks.length} tasks={this.state.tasks} incrementCounter={this.incrementCounter} incrementSequenceCounter={this.props.incrementSequenceCounter} />
+            } else if (this.state.tasks[this.state.counter].task_type === 'Neue_Wörter') {
+                return <NewWords counter={this.state.counter} total={this.state.tasks.length} tasks={this.state.tasks} incrementCounter={this.incrementCounter} incrementSequenceCounter={this.props.incrementSequenceCounter} index={this.props.index} />
             }
         }
 
     }
 }
 
-export default Tasks;
+export default withRouter(Tasks);

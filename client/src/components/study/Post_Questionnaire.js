@@ -62,12 +62,18 @@ class Post_Questionnaire extends React.Component {
 
     console.log(this.props.count + 1, this.props.total);
 
+<<<<<<< HEAD
+=======
     // Anpassung der Farbe notwendig, wenn APM als Teil des Fragebogens umgesetzt werden
+>>>>>>> master
     var defaultThemeColors = Survey.StylesManager.ThemeColors["default"];
     defaultThemeColors["$main-color"] = "#3200ff";
     defaultThemeColors["$main-hover-color"] = "#f55000";
     Survey.StylesManager.applyTheme();
+<<<<<<< HEAD
+=======
 
+>>>>>>> master
     let json = {
       locale: "de",
       pages: [
@@ -437,10 +443,10 @@ class Post_Questionnaire extends React.Component {
 
     var surveyRender = !this.state.isCompleted ? (
       <div>
-        <ProgressBar
+        {/* <ProgressBar
           percent={(this.props.total / this.props.total) * 100}
           filledBackground="linear-gradient(to right,rgb(255, 187, 153), rgb(255, 134, 73))"
-        />
+        /> */}
 
         <div className="questionnaire-description">
           <div className="wrapper">
@@ -462,8 +468,9 @@ class Post_Questionnaire extends React.Component {
     ) : null;
 
     var onCompleteComponent = this.state.isCompleted
-      ? this.props.history.push("/finished")
-      : null;
+      ? this.props.incrementSequenceCounter()
+      : // this.props.history.push("/finished")
+        null;
 
     return (
       <div>
