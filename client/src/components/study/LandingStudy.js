@@ -219,11 +219,11 @@ class LandingStudy extends React.Component {
               <br />
               Gegenstand dieser Studie ist ein neu entwickeltes Messinstrument
               in der Kreativitätsforschung. Anhand verschiedener Aufgabentypen
-              wird ein Kreativitätsscore bestimmt. Zusätzlich werden weitere
+              wird ein Kreativitätsscore bestimmt. Zusätzlich werden weitere individuelle
               Eigenschaften abgefragt.
               <br />
               <br />
-              Bitte lesen Sie sich jede Frage bzw. jede Aufgabe in Ruhe durch
+              <b>Bitte beachten Sie, dass diese Studie nicht für die Durchführung mit einem Smartphone geeignet ist.</b> Nutzen Sie einen PC, einen Laptop oder ein Tablet. Bitte lesen Sie sich jede Frage bzw. jede Aufgabenstellung in Ruhe durch
               und beantworten Sie diese. Die Datenerhebung gilt ausschließlich
               der Evaluation des Messinstruments. Sie als Proband können nichts
               falsch machen. Die Bearbeitung der Studie wird ca. 30-40 Minuten

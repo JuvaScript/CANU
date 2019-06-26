@@ -141,7 +141,7 @@ class Post_Questionnaire extends React.Component {
             {
               type: "radiogroup",
               name: "Abschluss",
-              title: "Wie ist Ihr höchster Bildungsabschluss?",
+              title: "Welcher ist Ihr höchster Bildungsabschluss?",
               isRequired: this.state.requiredQ,
               hasOther: true,
               choices: [
@@ -186,7 +186,7 @@ class Post_Questionnaire extends React.Component {
                   text: "Habilitation"
                 }
               ],
-              otherText: "Anderen"
+              otherText: "Anderer"
             },
             {
               type: "radiogroup",
@@ -235,7 +235,11 @@ class Post_Questionnaire extends React.Component {
                 {
                   value: "9",
                   text: "Wirtschaft & Recht"
-                }
+                },
+                {
+                  value: "10",
+                  text: "Verwaltung"
+                },
               ],
               otherText: "Anderen"
             },
@@ -335,7 +339,7 @@ class Post_Questionnaire extends React.Component {
               type: "matrix",
               name: "Spiele",
               title:
-                "Wie gut schätzen Sie Ihre Fähigkeiten in den folgenden Spielen ein?",
+                "Wie gut sind Ihre Fähigkeiten in den folgenden Spielen?",
               isRequired: this.state.requiredQ,
               columns: [
                 {
@@ -377,36 +381,6 @@ class Post_Questionnaire extends React.Component {
           name: "Verabschiedung",
           elements: [
             {
-              type: "text",
-              name: "Email_Adresse",
-              title: {
-                de:
-                  "Hinterlassen Sie uns Ihre E-Mail-Adresse, falls Sie an dem Gewinnspiel teilnehmen möchten."
-              }
-            },
-            {
-              type: "html",
-              name: "Info_Code",
-              html: {
-                de:
-                  "<br>Um Ihre Anonymität zu wahren und Ihnen dennoch die Möglichkeit zu geben eine Löschung Ihrer Daten zu beantragen, verwenden wir  einen anonymen persönlichen Code.<br><br>1. Bitte geben Sie in das Feld unten zuerst die ersten zwei Buchstaben des Vornamens Ihrer Mutter ein.<br>2. Bitte geben Sie nun die ersten zwei Ziffern des Geburtstages Ihrer Mutter ein.<br>3. Bitte geben Sie abschließend die ersten zwei Ziffern Ihres Geburtstages ein.<br><br><b>Beispiel:</b> Heißt Ihre Mutter <b>Su</b>sanne, ist sie am <b>08</b>.01.1960 geboren und Sie sind am <b>23</b>.01.1990 geboren, so lautet Ihr Code: <b>SU0823</b>"
-              }
-            },
-            {
-              type: "text",
-              name: "Code",
-              title: "",
-              isRequired: true,
-              validators: [
-                {
-                  type: "text",
-                  minLength: 6,
-                  maxLength: 6,
-                  allowDigits: true
-                }
-              ]
-            },
-            {
               type: "radiogroup",
               name: "Zukunftsproband",
               title: {
@@ -427,7 +401,60 @@ class Post_Questionnaire extends React.Component {
                   }
                 }
               ]
-            }
+            },
+            {
+              type: "radiogroup",
+              name: "Verlosung",
+              title: {
+                de:
+                  "Als Dankeschön für Ihre Teilnahme möchten wir gerne unter den Teilnehmenden drei 50 Euro-Gutscheine sowie fünf 10 Euro-Gutscheine von dem Online-Versandhändler Amazon verlosen. Möchten SIe an dieser Verlosung teilnehmen?"
+              },
+              choices: [
+                {
+                  value: "1",
+                  text: {
+                    de: "Ja"
+                  }
+                },
+                {
+                  value: "0",
+                  text: {
+                    de: "Nein"
+                  }
+                }
+              ]
+            },
+            {
+              type: "text",
+              name: "Email_Adresse",
+              visibleIf: "{Zukunftsproband} = 1 or {Verlosung} =1",
+              title: {
+                de:
+                  "Hinterlassen Sie uns Ihre E-Mail-Adresse, damit wir Sie kontaktieren können."
+              }
+            },
+            {
+              type: "html",
+              name: "Info_Code",
+              html: {
+                de:
+                  "<br>Mittels eines individuellen Codes, den Sie nun erstellen, können Sie den Lehrstuhl jederzeit kontaktieren und eine Löschung Ihrer Daten verlangen. Dieser Code ermöglicht es uns ebenfalls, die Daten der beiden Erhebungszeitpunkte personenbezogen zuordnen zu können und dabei dennoch Ihre Anonymität zu wahren, sofern Sie einem zweiten Erhebungszeitpunkt oben zugestimmt haben.<br><br>1. Bitte geben Sie in das Feld unten zuerst die ersten zwei Buchstaben des Vornamens Ihrer Mutter ein.<br>2. Bitte geben Sie nun die ersten zwei Ziffern des Geburtstages Ihrer Mutter ein.<br>3. Bitte geben Sie abschließend die ersten zwei Ziffern Ihres Geburtstages ein.<br><br><b>Beispiel:</b> Heißt Ihre Mutter <b>Su</b>sanne, ist sie am <b>08</b>.01.1960 geboren und sind Sie am <b>23</b>.01.1990 geboren, so lautet Ihr Code: <b>SU0823</b>"
+              }
+            },
+            {
+              type: "text",
+              name: "Code",
+              title: "",
+              isRequired: true,
+              validators: [
+                {
+                  type: "text",
+                  minLength: 6,
+                  maxLength: 6,
+                  allowDigits: true
+                }
+              ]
+            },
           ]
         }
       ],
