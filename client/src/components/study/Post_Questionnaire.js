@@ -239,7 +239,7 @@ class Post_Questionnaire extends React.Component {
                 {
                   value: "10",
                   text: "Verwaltung"
-                },
+                }
               ],
               otherText: "Anderen"
             },
@@ -339,7 +339,7 @@ class Post_Questionnaire extends React.Component {
               type: "matrix",
               name: "Spiele",
               title:
-                "Wie gut sind Ihre Fähigkeiten in den folgenden Spielen?",
+                "Wie gut schätzen Sie Ihre Fähigkeiten in den folgenden Spielen?",
               isRequired: this.state.requiredQ,
               columns: [
                 {
@@ -373,7 +373,7 @@ class Post_Questionnaire extends React.Component {
               type: "html",
               name: "info",
               html:
-                "<table><body><row><td><b>Ubongo:</b></td><td><img src='/images/Ubongo.png' width='200px' /></td><td><b>Scrabble:</b></td><td><img src='/images/Scrabble.png' width='200px' /></td></row></body></table>"
+                "<table><body><row><td><b>Tetris:</b></td><td><img src='/images/Tetris.png' width='175px' /></td><td><b>Ubongo:</b></td><td><img src='/images/Ubongo.png' width='200px' /></td><td><b>Scrabble:</b></td><td><img src='/images/Scrabble.png' width='200px' /></td></row></body></table>"
             }
           ]
         },
@@ -383,6 +383,7 @@ class Post_Questionnaire extends React.Component {
             {
               type: "radiogroup",
               name: "Zukunftsproband",
+              isRequired: this.state.requiredQ,
               title: {
                 de:
                   "Um nachvollziehen zu können, inwieweit sich bei Ihnen bestimmte Merkmale im Laufe der Zeit verändern, würden wir Sie in einigen Monaten gerne noch einmal befragen. Stehen Sie hierfür zur Verfügung?"
@@ -405,6 +406,7 @@ class Post_Questionnaire extends React.Component {
             {
               type: "radiogroup",
               name: "Verlosung",
+              isRequired: this.state.requiredQ,
               title: {
                 de:
                   "Als Dankeschön für Ihre Teilnahme möchten wir gerne unter den Teilnehmenden drei 50 Euro-Gutscheine sowie fünf 10 Euro-Gutscheine von dem Online-Versandhändler Amazon verlosen. Möchten SIe an dieser Verlosung teilnehmen?"
@@ -425,9 +427,34 @@ class Post_Questionnaire extends React.Component {
               ]
             },
             {
+              type: "radiogroup",
+              name: "Feedback",
+              isRequired: this.state.requiredQ,
+              title: {
+                de:
+                  "Möchten Sie, dass wir Ihnen nach Abschluss unserer Studie Ihren Kreativitätsscore mitteilen? Dieser wird basierend auf der Blocks- und der Neue Wörter-Aufgabe bestimmt."
+              },
+              choices: [
+                {
+                  value: "1",
+                  text: {
+                    de: "Ja"
+                  }
+                },
+                {
+                  value: "0",
+                  text: {
+                    de: "Nein"
+                  }
+                }
+              ]
+            },
+            {
               type: "text",
               name: "Email_Adresse",
-              visibleIf: "{Zukunftsproband} = 1 or {Verlosung} =1",
+              visibleIf:
+                "{Zukunftsproband} = 1 or {Verlosung} =1 or {Feedback} = 1",
+              isRequired: this.state.requiredQ,
               title: {
                 de:
                   "Hinterlassen Sie uns Ihre E-Mail-Adresse, damit wir Sie kontaktieren können."
@@ -445,7 +472,7 @@ class Post_Questionnaire extends React.Component {
               type: "text",
               name: "Code",
               title: "",
-              isRequired: true,
+              isRequired: this.state.requiredQ,
               validators: [
                 {
                   type: "text",
@@ -455,6 +482,12 @@ class Post_Questionnaire extends React.Component {
                 }
               ]
             },
+            {
+              type: "html",
+              name: "info_Rückfragen",
+              html:
+                "Für Rückfragen oder Anmerkungen stehen wir Ihnen gerne zur Verfügung: Lorenz Prasch (lorenz.prasch@tum.de)"
+            }
           ]
         }
       ],

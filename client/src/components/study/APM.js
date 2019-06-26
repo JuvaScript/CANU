@@ -69,7 +69,7 @@ class APM extends React.Component {
               type: "html",
               name: "info_Item",
               html:
-                "<img src='/images/Item_7_0.png' width='600' alt='Test Item 1' align='middle'/>"
+                "<img src='/images/Item_7_0.png' width='500' alt='Test Item 1' align='middle'/>"
             },
             {
               type: "html",
@@ -129,7 +129,7 @@ class APM extends React.Component {
               type: "html",
               name: "info_Item",
               html:
-                "<img src='/images/Item_8_0.png' width='600' alt='Test Item 1' align='middle'/>"
+                "<img src='/images/Item_8_0.png' width='500' alt='Test Item 1' align='middle'/>"
             },
             {
               type: "html",
@@ -189,7 +189,7 @@ class APM extends React.Component {
               type: "html",
               name: "info_Item",
               html:
-                "<img src='/images/Item_9_0.png' width='600' alt='Test Item 1' align='middle'/>"
+                "<img src='/images/Item_9_0.png' width='500' alt='Test Item 1' align='middle'/>"
             },
             {
               type: "html",
@@ -249,7 +249,7 @@ class APM extends React.Component {
               type: "html",
               name: "info_Item",
               html:
-                "<img src='/images/Item_10_0.png' width='600' alt='Test Item 1' align='middle'/>"
+                "<img src='/images/Item_10_0.png' width='500' alt='Test Item 1' align='middle'/>"
             },
             {
               type: "html",
@@ -309,7 +309,7 @@ class APM extends React.Component {
               type: "html",
               name: "info_Item",
               html:
-                "<img src='/images/Item_11_0.png' width='600' alt='Test Item 1' align='middle'/>"
+                "<img src='/images/Item_11_0.png' width='500' alt='Test Item 1' align='middle'/>"
             },
             {
               type: "html",
@@ -369,7 +369,7 @@ class APM extends React.Component {
               type: "html",
               name: "info_Item",
               html:
-                "<img src='/images/Item_12_0.png' width='600' alt='Test Item 1' align='middle'/>"
+                "<img src='/images/Item_12_0.png' width='500' alt='Test Item 1' align='middle'/>"
             },
             {
               type: "html",
