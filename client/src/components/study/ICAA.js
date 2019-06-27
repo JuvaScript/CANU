@@ -32,8 +32,18 @@ class ICAA extends React.Component {
     console.log("completetriggered");
     // Änderung
     this.props.incrementSequenceCounter();
-
     console.log(survey.data);
+    axios
+    .post(
+      `/ICAA`,
+      survey.data
+    )
+    .then(res => {
+      console.log(res.data);
+    })
+    .catch(err => {
+      console.log(err.response);
+    });
   };
 
   constructor() {
@@ -79,7 +89,7 @@ class ICAA extends React.Component {
           elements: [
             {
               type: "matrix",
-              name: "Literatur",
+              name: "literature",
               title: {
                 de: this.state.caInstructions[0]
               },
@@ -118,37 +128,37 @@ class ICAA extends React.Component {
               ],
               rows: [
                 {
-                  value: "lit_item_1",
+                  value: "short",
                   text: {
                     de: "ein kurzes Werk (Gedicht/Kurzgeschichte) geschrieben"
                   }
                 },
                 {
-                  value: "lit_item_2",
+                  value: "long",
                   text: {
                     de: "ein langes Werk (Buch, Theaterstück) geschrieben"
                   }
                 },
                 {
-                  value: "lit_item_3",
+                  value: "newspaper",
                   text: {
                     de: "einen Beitrag für eine Zeitung geschrieben"
                   }
                 },
                 {
-                  value: "lit_item_4",
+                  value: "speech",
                   text: {
                     de: "eine originelle Rede entworfen"
                   }
                 },
                 {
-                  value: "lit_item_5",
+                  value: "joke",
                   text: {
                     de: "einen Witz erfunden"
                   }
                 },
                 {
-                  value: "lit_item_6",
+                  value: "blog",
                   text: {
                     de: "einen Blogeintrag geschrieben"
                   }
@@ -157,7 +167,7 @@ class ICAA extends React.Component {
             },
             {
               type: "matrix",
-              name: "Musik",
+              name: "music",
               title: {
                 de: this.state.caInstructions[1]
               },
@@ -196,37 +206,37 @@ class ICAA extends React.Component {
               ],
               rows: [
                 {
-                  value: "mus_item_1",
+                  value: "own_piece",
                   text: {
                     de: "ein Musikstück geschrieben"
                   }
                 },
                 {
-                  value: "mus_item_2",
+                  value: "interpreted_piece",
                   text: {
                     de: "ein Musikstück kreativ abgeändert/neu interpretiert"
                   }
                 },
                 {
-                  value: "mus_item_3",
+                  value: "own_melodie",
                   text: {
                     de: "eine Melodie ausgedacht"
                   }
                 },
                 {
-                  value: "mus_item_4",
+                  value: "own_rhythm",
                   text: {
                     de: "einen Rhythmus ausgedacht"
                   }
                 },
                 {
-                  value: "mus_item_5",
+                  value: "synthesizer",
                   text: {
                     de: "Töne künstlich erzeugt (z.B. mit Synthesizer)"
                   }
                 },
                 {
-                  value: "mus_item_6",
+                  value: "playlist",
                   text: {
                     de:
                       "eine Musikzusammenstellung erstellt (z.B. DJ, CD-Sampler)"
@@ -236,7 +246,7 @@ class ICAA extends React.Component {
             },
             {
               type: "matrix",
-              name: "Handarbeiten",
+              name: "crafts",
               title: {
                 de: this.state.caInstructions[2]
               },
@@ -275,37 +285,37 @@ class ICAA extends React.Component {
               ],
               rows: [
                 {
-                  value: "han_item_1",
+                  value: "created_object",
                   text: {
                     de: "einen Alltagsgegenstand gebastelt"
                   }
                 },
                 {
-                  value: "han_item_2",
+                  value: "enhanced_object",
                   text: {
                     de: "einen Alltagsgegenstand verschönert"
                   }
                 },
                 {
-                  value: "han_item_3",
+                  value: "gift",
                   text: {
                     de: "ein Geschenk gebastelt"
                   }
                 },
                 {
-                  value: "han_item_4",
+                  value: "decoration",
                   text: {
                     de: "originelle Dekoration gestaltet"
                   }
                 },
                 {
-                  value: "han_item_5",
+                  value: "planed_garden",
                   text: {
                     de: "einen Garten geplant"
                   }
                 },
                 {
-                  value: "han_item_6",
+                  value: "created_cloths",
                   text: {
                     de: "Kleidung entworfen oder genäht"
                   }
@@ -314,7 +324,7 @@ class ICAA extends React.Component {
             },
             {
               type: "matrix",
-              name: "Kochen",
+              name: "cooking",
               title: {
                 de: this.state.caInstructions[3]
               },
@@ -353,37 +363,37 @@ class ICAA extends React.Component {
               ],
               rows: [
                 {
-                  value: "koc_item_1",
+                  value: "own_dish",
                   text: {
                     de: "ein originelles Gericht gekocht"
                   }
                 },
                 {
-                  value: "koc_item_2",
+                  value: "presentation",
                   text: {
                     de: "ein Gericht kreativ angerichtet"
                   }
                 },
                 {
-                  value: "koc_item_3",
+                  value: "cake_decoration",
                   text: {
                     de: "Kekse/Torte kreativ verziert"
                   }
                 },
                 {
-                  value: "koc_item_4",
+                  value: "food_sculpture",
                   text: {
                     de: "eine Skulptur aus Essen gemacht"
                   }
                 },
                 {
-                  value: "koc_item_5",
+                  value: "recipe",
                   text: {
                     de: "ein eigenes Rezept erfunden"
                   }
                 },
                 {
-                  value: "koc_item_6",
+                  value: "drink",
                   text: {
                     de: "ein neues Getränk/Cocktail kreiert"
                   }
@@ -392,7 +402,7 @@ class ICAA extends React.Component {
             },
             {
               type: "matrix",
-              name: "Sport",
+              name: "sports",
               title: {
                 de: this.state.caInstructions[4]
               },
@@ -431,42 +441,42 @@ class ICAA extends React.Component {
               ],
               rows: [
                 {
-                  value: "spo_item_1",
+                  value: "special_skills",
                   text: {
                     de:
                       "Neue Tricks/Bewegungsabfolgen erfunden im Geschicklichkeitssport (z.B. Jonglieren)"
                   }
                 },
                 {
-                  value: "spo_item_2",
+                  value: "wintersports",
                   text: {
                     de:
                       "neue Tricks/Bewegungsabfolgen erfunden im Wintersport (z.B. Schifahren, Snowboard)"
                   }
                 },
                 {
-                  value: "spo_item_3",
+                  value: "summersports",
                   text: {
                     de:
                       "neue Tricks/Bewegungsabfolgen erfunden im Sommersport (z.B. Fahrrad, Skateboard)"
                   }
                 },
                 {
-                  value: "spo_item_4",
+                  value: "martial_arts",
                   text: {
                     de:
                       "neue Tricks/Bewegungsabfolgen erfunden im Kampfsport (z.B. Karate, Judo)"
                   }
                 },
                 {
-                  value: "spo_item_5",
+                  value: "others",
                   text: {
                     de:
                       "neue Tricks/Bewegungsabfolgen erfunden in anderen Sportbereichen"
                   }
                 },
                 {
-                  value: "spo_item_6",
+                  value: "planed_training",
                   text: {
                     de: "ein abwechslungsreiches Sporttraining geplant"
                   }
@@ -475,7 +485,7 @@ class ICAA extends React.Component {
             },
             {
               type: "matrix",
-              name: "Bildende_Kunst",
+              name: "fine_arts",
               title: {
                 de: this.state.caInstructions[5]
               },
@@ -514,37 +524,37 @@ class ICAA extends React.Component {
               ],
               rows: [
                 {
-                  value: "bik_item_1",
+                  value: "collage",
                   text: {
                     de: "eine Fotozusammenstellung oder Fotomontage gemacht"
                   }
                 },
                 {
-                  value: "bik_item_2",
+                  value: "logo",
                   text: {
                     de: "ein Logo/Banner entworfen"
                   }
                 },
                 {
-                  value: "bik_item_3",
+                  value: "building",
                   text: {
                     de: "ein Gebäude geplant"
                   }
                 },
                 {
-                  value: "bik_item_4",
+                  value: "painting",
                   text: {
                     de: "ein Bild/eine Grafik ausgedacht und gemalt"
                   }
                 },
                 {
-                  value: "bik_item_5",
+                  value: "sculpture",
                   text: {
                     de: "eine Skulptur entworfen"
                   }
                 },
                 {
-                  value: "bik_item_6",
+                  value: "skatch_interior",
                   text: {
                     de:
                       "eine Skizze für Neugestaltung eines Innenraums angefertigt"
@@ -554,7 +564,7 @@ class ICAA extends React.Component {
             },
             {
               type: "matrix",
-              name: "Darstellende_Kunst",
+              name: "performing_arts",
               title: {
                 de: this.state.caInstructions[6]
               },
@@ -593,37 +603,37 @@ class ICAA extends React.Component {
               ],
               rows: [
                 {
-                  value: "dak_item_1",
+                  value: "theater_role",
                   text: {
                     de: "eine Rolle in einem Theater gespielt"
                   }
                 },
                 {
-                  value: "dak_item_2",
+                  value: "puppet_theatre",
                   text: {
                     de: "ein Puppentheater/Kasperltheater aufgeführt"
                   }
                 },
                 {
-                  value: "dak_item_3",
+                  value: "new_dance",
                   text: {
                     de: "einen neuen Tanz ausgedacht"
                   }
                 },
                 {
-                  value: "dak_item_4",
+                  value: "interpreted_dance",
                   text: {
                     de: "einen Tanz neu interpretiert"
                   }
                 },
                 {
-                  value: "dak_item_5",
+                  value: "video",
                   text: {
                     de: "einen Film/Video gemacht"
                   }
                 },
                 {
-                  value: "dak_item_6",
+                  value: "animation",
                   text: {
                     de:
                       "eine Animation (z.B. Stop Motion, Trickfilm, etc.) gemacht"
@@ -633,7 +643,7 @@ class ICAA extends React.Component {
             },
             {
               type: "matrix",
-              name: "Technik_und_Naturwissenschaft",
+              name: "science",
               title: {
                 de: this.state.caInstructions[7]
               },
@@ -672,39 +682,39 @@ class ICAA extends React.Component {
               ],
               rows: [
                 {
-                  value: "tun_item_1",
+                  value: "written_thesis",
                   text: {
                     de: "eine wissenschaftliche Arbeit geschrieben"
                   }
                 },
                 {
-                  value: "tun_item_2",
+                  value: "own_theory",
                   text: {
                     de: "eine Theorie entwickelt um Phänomene zu erklären"
                   }
                 },
                 {
-                  value: "tun_item_3",
+                  value: "technically_solved_problem",
                   text: {
                     de:
                       "ein praktisches Problem mit einem eigenen technischen Trick gelöst"
                   }
                 },
                 {
-                  value: "tun_item_4",
+                  value: "own_construction",
                   text: {
                     de:
                       "etwas konstruiert, das wissenschaftliches Wissen erfordert"
                   }
                 },
                 {
-                  value: "tun_item_5",
+                  value: "programming",
                   text: {
                     de: "Computerprogramm geschrieben"
                   }
                 },
                 {
-                  value: "tun_item_6",
+                  value: "website",
                   text: {
                     de: "eine eigene Webseite erstellt"
                   }

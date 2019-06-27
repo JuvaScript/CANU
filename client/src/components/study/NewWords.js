@@ -231,7 +231,7 @@ class NewWords extends Component {
     // create solution object based on current state
     const solutionObject = {
       solution: this.state.values.join().toLowerCase(),
-      unused: this.state.allowedChars.join().toLowerCase(),
+      unused: this.state.allowedChars.join(' ').toLowerCase(),
       task: this.state.taskID
     };
 

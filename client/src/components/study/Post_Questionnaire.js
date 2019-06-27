@@ -28,8 +28,18 @@ class Post_Questionnaire extends React.Component {
 
   onCompleteComponent = survey => {
     this.setState({ isCompleted: true });
-
     console.log(survey.data);
+    axios
+    .post(
+      `/Post_Questionnaire`,
+      survey.data
+    )
+    .then(res => {
+      console.log(res.data);
+    })
+    .catch(err => {
+      console.log(err.response);
+    });
   };
 
   constructor() {
@@ -75,7 +85,7 @@ class Post_Questionnaire extends React.Component {
           elements: [
             {
               type: "multipletext",
-              name: "Kreative_Leistungen",
+              name: "creative_achievements",
               title: {
                 de:
                   "Bitte nennen Sie nun die drei kreativsten Leistungen/Errungenschaften Ihres Lebens. Wählen Sie jene Leistungen aus die einer anderen Person am ehesten ermöglichen Ihre Kreativität einzuschätzen. Ihre Antworten können auch aus anderen Bereichen als denen im vorangehenden Fragebogen kommen. Nennen Sie erst Ihre kreativste Leistung, dann die zweit-kreativste Leistung, und so weiter. Beschreiben Sie bitte jede Leistung mit einem kurzen prägnanten Satz in den entsprechenden untenstehenden Feldern. Wenn es weniger als drei relevante Leistungen geben sollte, lassen Sie die verbleibenden Felder einfach frei."
@@ -107,7 +117,7 @@ class Post_Questionnaire extends React.Component {
           elements: [
             {
               type: "text",
-              name: "Alter",
+              name: "age",
               title: "Wie alt sind Sie?",
               isRequired: this.state.requiredQ,
               validators: [
@@ -120,7 +130,7 @@ class Post_Questionnaire extends React.Component {
             },
             {
               type: "radiogroup",
-              name: "Geschlecht",
+              name: "gender",
               title: "Welches biologische Geschlecht haben Sie?",
               isRequired: this.state.requiredQ,
               choices: [
@@ -140,7 +150,7 @@ class Post_Questionnaire extends React.Component {
             },
             {
               type: "radiogroup",
-              name: "Abschluss",
+              name: "education_grade",
               title: "Welcher ist Ihr höchster Bildungsabschluss?",
               isRequired: this.state.requiredQ,
               hasOther: true,
@@ -190,7 +200,7 @@ class Post_Questionnaire extends React.Component {
             },
             {
               type: "radiogroup",
-              name: "Branche",
+              name: "domain",
               title:
                 "In welchem Bereich würden Sie Ihr Studium/Ihre Ausbildung/Ihren Beruf verorten?",
               isRequired: this.state.requiredQ,
@@ -245,7 +255,7 @@ class Post_Questionnaire extends React.Component {
             },
             {
               type: "radiogroup",
-              name: "Sprachfähigkeit",
+              name: "german",
               title: "Wie schätzen Sie Ihre deutsche Sprachfähigkeit ein?",
               isRequired: this.state.requiredQ,
               choices: [
@@ -281,7 +291,7 @@ class Post_Questionnaire extends React.Component {
             },
             {
               type: "radiogroup",
-              name: "Legasthenie",
+              name: "dyslexia",
               title:
                 "Haben Sie eine Lese- und Rechtschreibschwäche oder Legasthenie (Entwicklungsstörung beim Erlernen des Lesens und Rechtschreibens von Wörter)?",
               isRequired: this.state.requiredQ,
@@ -298,7 +308,7 @@ class Post_Questionnaire extends React.Component {
             },
             {
               type: "matrix",
-              name: "Offenheit",
+              name: "statement",
               title: "Inwieweit treffen die folgenden Aussagen auf Sie zu?",
               isRequired: this.state.requiredQ,
               columns: [
@@ -325,11 +335,11 @@ class Post_Questionnaire extends React.Component {
               ],
               rows: [
                 {
-                  value: "Row 1",
+                  value: "interest_arts",
                   text: "Ich habe nur wenig künstlerisches Interesse."
                 },
                 {
-                  value: "Row 2",
+                  value: "imagination",
                   text:
                     "Ich habe eine aktive Vorstellungskraft, bin fantasievoll."
                 }
@@ -337,7 +347,7 @@ class Post_Questionnaire extends React.Component {
             },
             {
               type: "matrix",
-              name: "Spiele",
+              name: "games",
               title:
                 "Wie gut schätzen Sie Ihre Fähigkeiten in den folgenden Spielen?",
               isRequired: this.state.requiredQ,
@@ -367,7 +377,7 @@ class Post_Questionnaire extends React.Component {
                   text: "gut"
                 }
               ],
-              rows: ["Tetris", "Ubongo", "Scrabble"]
+              rows: ["tetris", "ubongo", "scrabble"]
             },
             {
               type: "html",
@@ -382,7 +392,7 @@ class Post_Questionnaire extends React.Component {
           elements: [
             {
               type: "radiogroup",
-              name: "Zukunftsproband",
+              name: "subsequent_questionnaire",
               isRequired: this.state.requiredQ,
               title: {
                 de:
@@ -405,7 +415,7 @@ class Post_Questionnaire extends React.Component {
             },
             {
               type: "radiogroup",
-              name: "Verlosung",
+              name: "competition",
               isRequired: this.state.requiredQ,
               title: {
                 de:
@@ -428,7 +438,7 @@ class Post_Questionnaire extends React.Component {
             },
             {
               type: "radiogroup",
-              name: "Feedback",
+              name: "feedback",
               isRequired: this.state.requiredQ,
               title: {
                 de:
@@ -451,7 +461,7 @@ class Post_Questionnaire extends React.Component {
             },
             {
               type: "text",
-              name: "Email_Adresse",
+              name: "email",
               visibleIf:
                 "{Zukunftsproband} = 1 or {Verlosung} =1 or {Feedback} = 1",
               isRequired: this.state.requiredQ,
@@ -470,7 +480,7 @@ class Post_Questionnaire extends React.Component {
             },
             {
               type: "text",
-              name: "Code",
+              name: "code",
               title: "",
               isRequired: this.state.requiredQ,
               validators: [

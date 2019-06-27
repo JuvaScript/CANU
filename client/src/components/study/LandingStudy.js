@@ -44,7 +44,7 @@ class LandingStudy extends React.Component {
               </span>
               Nutzen Sie einen PC, einen Laptop oder ein Tablet. Bitte lesen Sie
               sich jede Frage bzw. jede Aufgabenstellung in Ruhe durch und
-              beantworten Sie diese. Die Datenerhebung gilt ausschließlich der
+              beantworten Sie diese. Für einige Aufgaben ist eine maximale Bearbeitungsdauer vorgegeben. Die Datenerhebung gilt ausschließlich der
               Evaluation des Messinstruments. Sie als Proband können nichts
               falsch machen. Die Bearbeitung der Studie wird ca. 30 Minuten in
               Anspruch nehmen.
@@ -86,6 +86,7 @@ class LandingStudy extends React.Component {
               <Link to={this.state.link} className="btn">
                 Start
               </Link>
+              <br/>
             </div>
           </div>
         </div>

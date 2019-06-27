@@ -33,7 +33,17 @@ class APM extends React.Component {
     //Änderung
     this.props.incrementSequenceCounter();
 
-    console.log(survey.data);
+    axios
+      .post(
+        `/APM`,
+        survey.data
+      )
+      .then(res => {
+        console.log(res.data);
+      })
+      .catch(err => {
+        console.log(err.response);
+      });
   };
 
   render() {
