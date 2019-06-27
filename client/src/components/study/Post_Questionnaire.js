@@ -463,7 +463,7 @@ class Post_Questionnaire extends React.Component {
               type: "text",
               name: "email",
               visibleIf:
-                "{Zukunftsproband} = 1 or {Verlosung} =1 or {Feedback} = 1",
+                "{subsequent_questionnaire} = 1 or {competition} =1 or {feedback} = 1",
               isRequired: this.state.requiredQ,
               title: {
                 de:
