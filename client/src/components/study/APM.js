@@ -16,15 +16,8 @@ import Tasks from "./Tasks";
 class APM extends React.Component {
   state = {
     isCompleted: false,
-    requiredQ: false,
-    caInstructions: [],
-    caScale: ["Nie", "1-2 Mal", "3-5 Mal", "6-10 Mal", "Mehr als 10 Mal"]
+    requiredQ: false
   };
-
-  // onComplete(survey, options) {
-  //     console.log("Survey results: " + JSON.stringify(survey.data));
-  //     this.props.incrementSequenceCounter();
-  // }
 
   onCompleteComponent = survey => {
     this.setState({ isCompleted: true });
@@ -34,10 +27,7 @@ class APM extends React.Component {
     this.props.incrementSequenceCounter();
 
     axios
-      .post(
-        `/APM`,
-        survey.data
-      )
+      .post(`/APM`, survey.data)
       .then(res => {
         console.log(res.data);
       })

@@ -16,56 +16,21 @@ import Tasks from "./Tasks";
 class Post_Questionnaire extends React.Component {
   state = {
     isCompleted: false,
-    requiredQ: false,
-    caInstructions: [],
-    caScale: ["Nie", "1-2 Mal", "3-5 Mal", "6-10 Mal", "Mehr als 10 Mal"]
+    requiredQ: false
   };
-
-  // onComplete(survey, options) {
-  //     console.log("Survey results: " + JSON.stringify(survey.data));
-  //     this.props.incrementSequenceCounter();
-  // }
 
   onCompleteComponent = survey => {
     this.setState({ isCompleted: true });
     console.log(survey.data);
     axios
-    .post(
-      `/Post_Questionnaire`,
-      survey.data
-    )
-    .then(res => {
-      console.log(res.data);
-    })
-    .catch(err => {
-      console.log(err.response);
-    });
+      .post(`/Post_Questionnaire`, survey.data)
+      .then(res => {
+        console.log(res.data);
+      })
+      .catch(err => {
+        console.log(err.response);
+      });
   };
-
-  constructor() {
-    super();
-    const caInstructionStart =
-      "Bitte kreuzen Sie für alle kreativen Aktivitäten aus dem Bereich ";
-    const caInstructionEnd =
-      " an, wie häufig Sie diese in den letzten 10 Jahren gemacht haben.";
-    const caCategoryTitles = [
-      "Literatur",
-      "Musik",
-      "Handarbeiten",
-      "Kochen",
-      "Sport",
-      "bildende Kunst",
-      "darstellende Kunst",
-      "Technik & Naturwissenschaft"
-    ];
-    const caInstructions = [];
-    for (var i = 0; i < 8; i++) {
-      caInstructions.push(
-        caInstructionStart + caCategoryTitles[i] + caInstructionEnd
-      );
-    }
-    this.state.caInstructions = caInstructions;
-  }
 
   render() {
     // var model = new Survey.Model(this.json);
@@ -349,7 +314,7 @@ class Post_Questionnaire extends React.Component {
               type: "matrix",
               name: "games",
               title:
-                "Wie gut schätzen Sie Ihre Fähigkeiten in den folgenden Spielen?",
+                "Wie gut schätzen Sie Ihre Fähigkeiten in den folgenden Spielen ein?",
               isRequired: this.state.requiredQ,
               columns: [
                 {
@@ -377,7 +342,26 @@ class Post_Questionnaire extends React.Component {
                   text: "gut"
                 }
               ],
-              rows: ["tetris", "ubongo", "scrabble"]
+              rows: [
+                {
+                  value: "tetris",
+                  text: {
+                    de: "Tetris"
+                  }
+                },
+                {
+                  value: "ubongo",
+                  text: {
+                    de: "Ubongo"
+                  }
+                },
+                {
+                  value: "scrabble",
+                  text: {
+                    de: "Scrabble"
+                  }
+                }
+              ]
             },
             {
               type: "html",
@@ -419,7 +403,7 @@ class Post_Questionnaire extends React.Component {
               isRequired: this.state.requiredQ,
               title: {
                 de:
-                  "Als Dankeschön für Ihre Teilnahme möchten wir gerne unter den Teilnehmenden drei 50 Euro-Gutscheine sowie fünf 10 Euro-Gutscheine von dem Online-Versandhändler Amazon verlosen. Möchten SIe an dieser Verlosung teilnehmen?"
+                  "Als Dankeschön für Ihre Teilnahme möchten wir gerne unter den Teilnehmenden drei 50 Euro-Gutscheine sowie fünf 10 Euro-Gutscheine von dem Online-Versandhändler Amazon verlosen. Möchten Sie an dieser Verlosung teilnehmen?"
               },
               choices: [
                 {
@@ -467,7 +451,7 @@ class Post_Questionnaire extends React.Component {
               isRequired: this.state.requiredQ,
               title: {
                 de:
-                  "Hinterlassen Sie uns Ihre E-Mail-Adresse, damit wir Sie kontaktieren können."
+                  "Hinterlassen Sie uns Ihre E-Mail-Adresse, damit wir Sie für die zweite Befragungsrunde/die Verlosung/das Feedback kontaktieren können."
               }
             },
             {
@@ -481,7 +465,7 @@ class Post_Questionnaire extends React.Component {
             {
               type: "text",
               name: "code",
-              title: "",
+              title: "Code",
               isRequired: this.state.requiredQ,
               validators: [
                 {

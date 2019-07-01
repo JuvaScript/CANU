@@ -21,11 +21,6 @@ class ICAA extends React.Component {
     caScale: ["Nie", "1-2 Mal", "3-5 Mal", "6-10 Mal", "Mehr als 10 Mal"]
   };
 
-  // onComplete(survey, options) {
-  //     console.log("Survey results: " + JSON.stringify(survey.data));
-  //     this.props.incrementSequenceCounter();
-  // }
-
   onCompleteComponent = survey => {
     this.setState({ isCompleted: true });
 
@@ -34,16 +29,13 @@ class ICAA extends React.Component {
     this.props.incrementSequenceCounter();
     console.log(survey.data);
     axios
-    .post(
-      `/ICAA`,
-      survey.data
-    )
-    .then(res => {
-      console.log(res.data);
-    })
-    .catch(err => {
-      console.log(err.response);
-    });
+      .post(`/ICAA`, survey.data)
+      .then(res => {
+        console.log(res.data);
+      })
+      .catch(err => {
+        console.log(err.response);
+      });
   };
 
   constructor() {
