@@ -67,7 +67,8 @@ app.use(session({
   store: new FileStore()
 }));
 
-app.use(express.static(path.join(__dirname, 'public')));
+// // Auskommentiert
+// app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use(passport.initialize());
 // app.use(passport.session());
@@ -85,6 +86,16 @@ app.use('/study', studyRouter);
 
 app.use('/insertTasks', insertTaskRouter);
 
+// Deployment Test
+// app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
+
+// app.get('/*', function (req, res) {
+//   const x = path.join(__dirname, '..', 'client', 'build', 'index.html');
+//   console.log(x);
+//   res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'));
+// });
+
+// app.listen(9000);
 app.use('/Post_Questionnaire', Post_QuestionnaireRouter);
 app.use('/APM', APMRouter);
 app.use('/ICAA', ICAARouter);
@@ -121,7 +132,7 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  // res.send('error');
 });
 
 module.exports = app;

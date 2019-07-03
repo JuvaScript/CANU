@@ -94,10 +94,6 @@ class StudySequence extends React.Component {
         )
       case 5:
         this.props.history.push("/finished")
-      // return (
-
-      //   <Finish />
-      // )
     }
   }
 

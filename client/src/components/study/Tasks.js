@@ -5,7 +5,10 @@ import { withRouter } from "react-router";
 
 import axios from 'axios';
 import NewWords from './NewWords';
+import NewWordsController from './NewWordsController';
+
 import Blocks from './Blocks';
+import BlocksController from './BlocksController';
 
 class Tasks extends React.Component {
     state = {
@@ -37,19 +40,35 @@ class Tasks extends React.Component {
         })
     }
 
+    blocksFinished = () => {
+
+        const newWordsCounter = this.state.tasks.map(task => task.task_type).indexOf('Neue_Wörter')
+        console.log(newWordsCounter);
+
+        if (newWordsCounter !== -1) {
+            this.setState({
+                counter: newWordsCounter
+            })
+        }
+        else {
+            this.props.incrementSequenceCounter()
+        }
+
+
+    }
+
     render() {
         console.log(this.props)
         if (this.state.tasks.length === 0) {
             return <div></div>
         }
-        // if (this.state.tasks.length === 0) {
-        //     return <Questionnaire />
-        // }
         else {
             if (this.state.tasks[this.state.counter].task_type === 'Tetris') {
-                return <Blocks counter={this.state.counter} total={this.state.tasks.length} tasks={this.state.tasks} incrementCounter={this.incrementCounter} incrementSequenceCounter={this.props.incrementSequenceCounter} />
+                // return <Blocks counter={this.state.counter} total={this.state.tasks.length} tasks={this.state.tasks} incrementCounter={this.incrementCounter} incrementSequenceCounter={this.props.incrementSequenceCounter} index={this.props.index} />
+                return <BlocksController counter={this.state.counter} total={this.state.tasks.length} tasks={this.state.tasks} blocksFinished={this.blocksFinished} incrementCounter={this.incrementCounter} incrementSequenceCounter={this.props.incrementSequenceCounter} index={this.props.index} />
             } else if (this.state.tasks[this.state.counter].task_type === 'Neue_Wörter') {
-                return <NewWords counter={this.state.counter} total={this.state.tasks.length} tasks={this.state.tasks} incrementCounter={this.incrementCounter} incrementSequenceCounter={this.props.incrementSequenceCounter} index={this.props.index} />
+                // return <NewWords counter={this.state.counter} total={this.state.tasks.length} tasks={this.state.tasks} incrementCounter={this.incrementCounter} incrementSequenceCounter={this.props.incrementSequenceCounter} index={this.props.index} />
+                return <NewWordsController counter={this.state.counter} total={this.state.tasks.length} tasks={this.state.tasks} incrementCounter={this.incrementCounter} incrementSequenceCounter={this.props.incrementSequenceCounter} index={this.props.index} />
             }
         }
 

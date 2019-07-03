@@ -4,17 +4,21 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import "./NewWords.css";
 
-import "react-step-progress-bar/styles.css";
-import { ProgressBar } from "react-step-progress-bar";
-
 // import Countdown from 'react-countdown-now';
 import Countdown from "./Countdown";
+
 
 import ReactTimeout from "react-timeout";
 
 import axios from "axios";
 
 class NewWords extends Component {
+
+  constructor(props) {
+    super(props);
+    this.countdownElement = React.createRef();
+  }
+
   state = {
     tasks: [],
     counter: 0,
@@ -298,6 +302,7 @@ class NewWords extends Component {
       // this.props.history.push("/icaa");
       this.props.incrementSequenceCounter();
     } else {
+      this.countdownElement.current.resetCountdown();
       this.props.incrementCounter();
 
       // reset input values
@@ -330,7 +335,7 @@ class NewWords extends Component {
                 jedem einfallen.
               </p>
             </div>
-            <Countdown timer={180} timeNext={this.timeNext} />
+            <Countdown timer={180} timeNext={this.timeNext} ref={this.countdownElement} />
             {/* <Countdown
               date={Date.now() + 10000}
               renderer={this.renderer}
@@ -351,12 +356,12 @@ class NewWords extends Component {
                     Aufgabe abschließen
                   </button>
                 ) : (
-                  <button
-                    className="next-btn"
-                    disabled={this.state.values.every(el => el.length === 0)}
-                    onClick={this.handleNext}
-                  >
-                    Nächste Aufgabe
+                    <button
+                      className="next-btn"
+                      disabled={this.state.values.every(el => el.length === 0)}
+                      onClick={this.handleNext}
+                    >
+                      Nächste Aufgabe
                   </button>
                 )}
               </form>

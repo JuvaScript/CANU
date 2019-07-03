@@ -8,6 +8,10 @@ class Countdown extends Component {
         timer: this.props.timer,
     }
 
+    resetCountdown = () => {
+        this.setState({ timer: this.props.timer });
+    }
+
     decrementTimeRemaining = () => {
         if (this.state.timer > 0) {
             this.setState({
