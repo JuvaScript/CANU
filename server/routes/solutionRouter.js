@@ -128,6 +128,29 @@ solutionRouter.route('/:studyId/:groupId')
             }).catch((err) => next(err));
     });
 
+// Ausgabe aller Tasks vom Typ "Tetris" zu einer Studie
+solutionRouter.route('/blocks/:studyId/:groupId')
+    .get((req, res, next) => {
+        Study.findById(req.params.studyId)
+            .populate('tasks')
+            .then((study) => {
+                var blocks = [];
+                for (i = 0; i < study.tasks.length; i++) {
+                    if (study.tasks[i].task_type == 'Tetris') {
+                        blocks.push(study.tasks[i])
+                    }
+                    else {
+                        continue;
+                    }
+                }
+                res.statusCode = 200;
+                res.setHeader('Content-Type', 'application/json');
+                res.json(blocks);
+            }, (err) => next(err))
+            .catch(err => next(err));
+    });
+
+
 
 
 // Aktualisiert in Solutions den Neuheitswert der anderen Lösungen bei neuer Lösung 
