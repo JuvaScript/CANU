@@ -40,11 +40,13 @@ class APM extends React.Component {
     // var model = new Survey.Model(this.json);
 
     console.log(this.props.count + 1, this.props.total);
+
     // Anpassung der Farbe notwendig, wenn APM als Teil des Fragebogens umgesetzt werden
     var defaultThemeColors = Survey.StylesManager.ThemeColors["default"];
     defaultThemeColors["$main-color"] = "#3200ff";
     defaultThemeColors["$main-hover-color"] = "#f55000";
     Survey.StylesManager.applyTheme();
+
     let json = {
       locale: "de",
       pages: [
@@ -61,7 +63,7 @@ class APM extends React.Component {
               type: "html",
               name: "info_Anweisung",
               html:
-                "Bitte klicken Sie auf das Element, welches das oben dargestellte Bild korrekt ergänzt."
+                "Sobald Sie sich für eine Antwortmöglichkeit entschieden haben, klicken Sie auf die Antwortmöglichkeit."
             },
             {
               type: "imagepicker",

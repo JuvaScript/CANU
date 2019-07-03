@@ -62,10 +62,18 @@ class Post_Questionnaire extends React.Component {
 
     console.log(this.props.count + 1, this.props.total);
 
+<<<<<<< HEAD
+=======
+    // Anpassung der Farbe notwendig, wenn APM als Teil des Fragebogens umgesetzt werden
+>>>>>>> master
     var defaultThemeColors = Survey.StylesManager.ThemeColors["default"];
     defaultThemeColors["$main-color"] = "#3200ff";
     defaultThemeColors["$main-hover-color"] = "#f55000";
     Survey.StylesManager.applyTheme();
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
     let json = {
       locale: "de",
       pages: [
@@ -398,12 +406,26 @@ class Post_Questionnaire extends React.Component {
               isRequired: true
             },
             {
-              type: "html",
-              name: "Info_Danke",
-              html: {
+              type: "radiogroup",
+              name: "Zukunftsproband",
+              title: {
                 de:
-                  "<br>Für Rückfragen oder Anmerkungen stehen wir Ihnen gerne unter der E-Mail-Adresse lorenz.prasch@tum.de zur Verfügung."
-              }
+                  "Um nachvollziehen zu können, inwieweit sich bei Ihnen bestimmte Merkmale im Laufe der Zeit verändern, würden wir Sie in einigen Monaten gerne noch einmal befragen. Stehen Sie hierfür zur Verfügung?"
+              },
+              choices: [
+                {
+                  value: "1",
+                  text: {
+                    de: "Ja"
+                  }
+                },
+                {
+                  value: "0",
+                  text: {
+                    de: "Nein"
+                  }
+                }
+              ]
             }
           ]
         }

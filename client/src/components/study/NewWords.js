@@ -353,12 +353,21 @@ class NewWords extends Component {
                     Aufgabe abschließen
                   </button>
                 ) : (
+<<<<<<< HEAD
                     <button
                       className="next-btn"
                       disabled={this.state.values.every(el => el.length === 0)}
                       onClick={this.handleNext}
                     >
                       Nächster Durchgang
+=======
+                  <button
+                    className="next-btn"
+                    disabled={this.state.values.every(el => el.length === 0)}
+                    onClick={this.handleNext}
+                  >
+                    Nächste Aufgabe
+>>>>>>> master
                   </button>
                   )}
               </form>
