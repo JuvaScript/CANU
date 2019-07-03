@@ -17,6 +17,7 @@ function usefulValue(req, next, callback) {
             else if (task.task_type == "Neue_Wörter") {
                 //console.log('solution " ' + req.body.solution + ' " was given');
                 var sol = [];
+                var invalid =[];
                 //var wort = [];
                 var length = [];
                 var länge = 0;
@@ -28,11 +29,12 @@ function usefulValue(req, next, callback) {
                     }
                     else {
                         var re = new RegExp('^' + req.body.solution[i] + '$');
-                        var words = require('an-array-of-english-words');
+                        var words = require('an-array-of-german-words');
                         var Word = words.filter(word => word.match(re));
                         //wort.push(Word);
                         if (Word == '') {
                             //console.log('Word "' + req.body.solution[i] + '" is not valid');
+                            invalid.push(req.body.solution[i]);
                         }
                         else {
                             sol.push(req.body.solution[i]);
@@ -40,7 +42,9 @@ function usefulValue(req, next, callback) {
                             länge = länge + req.body.solution[i].length;
                         }
                     }
-                };
+                }
+                console.log("Flasche Wörter "+invalid);
+                console.log("Richtige Wörter "+sol);
                 // Berechung des Nützlichkeitswertes
                 // linear
                 parseInt(task.max, 10);

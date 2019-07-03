@@ -16,57 +16,32 @@ import Tasks from "./Tasks";
 class Post_Questionnaire extends React.Component {
   state = {
     isCompleted: false,
-    requiredQ: false,
-    caInstructions: [],
-    caScale: ["Nie", "1-2 Mal", "3-5 Mal", "6-10 Mal", "Mehr als 10 Mal"]
+    requiredQ: false
   };
-
-  // onComplete(survey, options) {
-  //     console.log("Survey results: " + JSON.stringify(survey.data));
-  //     this.props.incrementSequenceCounter();
-  // }
 
   onCompleteComponent = survey => {
     this.setState({ isCompleted: true });
-
     console.log(survey.data);
+    axios
+      .post(`/Post_Questionnaire`, survey.data)
+      .then(res => {
+        console.log(res.data);
+      })
+      .catch(err => {
+        console.log(err.response);
+      });
   };
-
-  constructor() {
-    super();
-    const caInstructionStart =
-      "Bitte kreuzen Sie für alle kreativen Aktivitäten aus dem Bereich ";
-    const caInstructionEnd =
-      " an, wie häufig Sie diese in den letzten 10 Jahren gemacht haben.";
-    const caCategoryTitles = [
-      "Literatur",
-      "Musik",
-      "Handarbeiten",
-      "Kochen",
-      "Sport",
-      "bildende Kunst",
-      "darstellende Kunst",
-      "Technik & Naturwissenschaft"
-    ];
-    const caInstructions = [];
-    for (var i = 0; i < 8; i++) {
-      caInstructions.push(
-        caInstructionStart + caCategoryTitles[i] + caInstructionEnd
-      );
-    }
-    this.state.caInstructions = caInstructions;
-  }
 
   render() {
     // var model = new Survey.Model(this.json);
 
     console.log(this.props.count + 1, this.props.total);
 
-    // Anpassung der Farbe notwendig, wenn APM als Teil des Fragebogens umgesetzt werden
     var defaultThemeColors = Survey.StylesManager.ThemeColors["default"];
     defaultThemeColors["$main-color"] = "#3200ff";
     defaultThemeColors["$main-hover-color"] = "#f55000";
     Survey.StylesManager.applyTheme();
+    
     let json = {
       locale: "de",
       pages: [
@@ -75,7 +50,7 @@ class Post_Questionnaire extends React.Component {
           elements: [
             {
               type: "multipletext",
-              name: "Kreative_Leistungen",
+              name: "creative_achievements",
               title: {
                 de:
                   "Bitte nennen Sie nun die drei kreativsten Leistungen/Errungenschaften Ihres Lebens. Wählen Sie jene Leistungen aus die einer anderen Person am ehesten ermöglichen Ihre Kreativität einzuschätzen. Ihre Antworten können auch aus anderen Bereichen als denen im vorangehenden Fragebogen kommen. Nennen Sie erst Ihre kreativste Leistung, dann die zweit-kreativste Leistung, und so weiter. Beschreiben Sie bitte jede Leistung mit einem kurzen prägnanten Satz in den entsprechenden untenstehenden Feldern. Wenn es weniger als drei relevante Leistungen geben sollte, lassen Sie die verbleibenden Felder einfach frei."
@@ -107,7 +82,7 @@ class Post_Questionnaire extends React.Component {
           elements: [
             {
               type: "text",
-              name: "Alter",
+              name: "age",
               title: "Wie alt sind Sie?",
               isRequired: this.state.requiredQ,
               validators: [
@@ -120,7 +95,7 @@ class Post_Questionnaire extends React.Component {
             },
             {
               type: "radiogroup",
-              name: "Geschlecht",
+              name: "gender",
               title: "Welches biologische Geschlecht haben Sie?",
               isRequired: this.state.requiredQ,
               choices: [
@@ -140,8 +115,8 @@ class Post_Questionnaire extends React.Component {
             },
             {
               type: "radiogroup",
-              name: "Abschluss",
-              title: "Wie ist Ihr höchster Bildungsabschluss?",
+              name: "education_grade",
+              title: "Welcher ist Ihr höchster Bildungsabschluss?",
               isRequired: this.state.requiredQ,
               hasOther: true,
               choices: [
@@ -186,11 +161,11 @@ class Post_Questionnaire extends React.Component {
                   text: "Habilitation"
                 }
               ],
-              otherText: "Anderen"
+              otherText: "Anderer"
             },
             {
               type: "radiogroup",
-              name: "Branche",
+              name: "domain",
               title:
                 "In welchem Bereich würden Sie Ihr Studium/Ihre Ausbildung/Ihren Beruf verorten?",
               isRequired: this.state.requiredQ,
@@ -235,13 +210,17 @@ class Post_Questionnaire extends React.Component {
                 {
                   value: "9",
                   text: "Wirtschaft & Recht"
+                },
+                {
+                  value: "10",
+                  text: "Verwaltung"
                 }
               ],
               otherText: "Anderen"
             },
             {
               type: "radiogroup",
-              name: "Sprachfähigkeit",
+              name: "german",
               title: "Wie schätzen Sie Ihre deutsche Sprachfähigkeit ein?",
               isRequired: this.state.requiredQ,
               choices: [
@@ -277,7 +256,7 @@ class Post_Questionnaire extends React.Component {
             },
             {
               type: "radiogroup",
-              name: "Legasthenie",
+              name: "dyslexia",
               title:
                 "Haben Sie eine Lese- und Rechtschreibschwäche oder Legasthenie (Entwicklungsstörung beim Erlernen des Lesens und Rechtschreibens von Wörter)?",
               isRequired: this.state.requiredQ,
@@ -294,7 +273,7 @@ class Post_Questionnaire extends React.Component {
             },
             {
               type: "matrix",
-              name: "Offenheit",
+              name: "statement",
               title: "Inwieweit treffen die folgenden Aussagen auf Sie zu?",
               isRequired: this.state.requiredQ,
               columns: [
@@ -321,11 +300,11 @@ class Post_Questionnaire extends React.Component {
               ],
               rows: [
                 {
-                  value: "Row 1",
+                  value: "interest_arts",
                   text: "Ich habe nur wenig künstlerisches Interesse."
                 },
                 {
-                  value: "Row 2",
+                  value: "imagination",
                   text:
                     "Ich habe eine aktive Vorstellungskraft, bin fantasievoll."
                 }
@@ -333,7 +312,7 @@ class Post_Questionnaire extends React.Component {
             },
             {
               type: "matrix",
-              name: "Spiele",
+              name: "games",
               title:
                 "Wie gut schätzen Sie Ihre Fähigkeiten in den folgenden Spielen ein?",
               isRequired: this.state.requiredQ,
@@ -363,13 +342,32 @@ class Post_Questionnaire extends React.Component {
                   text: "gut"
                 }
               ],
-              rows: ["Tetris", "Ubongo", "Scrabble"]
+              rows: [
+                {
+                  value: "tetris",
+                  text: {
+                    de: "Tetris"
+                  }
+                },
+                {
+                  value: "ubongo",
+                  text: {
+                    de: "Ubongo"
+                  }
+                },
+                {
+                  value: "scrabble",
+                  text: {
+                    de: "Scrabble"
+                  }
+                }
+              ]
             },
             {
               type: "html",
               name: "info",
               html:
-                "<table><body><row><td><b>Ubongo:</b></td><td><img src='/images/Ubongo.png' width='200px' /></td><td><b>Scrabble:</b></td><td><img src='/images/Scrabble.png' width='200px' /></td></row></body></table>"
+                "<table><body><row><td><b>Tetris:</b></td><td><img src='/images/Tetris.png' width='175px' /></td><td><b>Ubongo:</b></td><td><img src='/images/Ubongo.png' width='200px' /></td><td><b>Scrabble:</b></td><td><img src='/images/Scrabble.png' width='200px' /></td></row></body></table>"
             }
           ]
         },
@@ -377,30 +375,9 @@ class Post_Questionnaire extends React.Component {
           name: "Verabschiedung",
           elements: [
             {
-              type: "text",
-              name: "Email_Adresse",
-              title: {
-                de:
-                  "Hinterlassen Sie uns Ihre E-Mail-Adresse, falls Sie an dem Gewinnspiel teilnehmen möchten."
-              }
-            },
-            {
-              type: "html",
-              name: "Info_Code",
-              html: {
-                de:
-                  "<br>Um Ihre Anonymität zu wahren und Ihnen dennoch die Möglichkeit zu geben eine Löschung Ihrer Daten zu beantragen, verwenden wir  einen anonymen persönlichen Code.<br><br>1. Bitte geben Sie in das Feld unten zuerst die ersten zwei Buchstaben des Vornamens Ihrer Mutter ein.<br>2. Bitte geben Sie nun die ersten zwei Ziffern des Geburtstages Ihrer Mutter ein.<br>3. Bitte geben Sie abschließend die ersten zwei Ziffern Ihres Geburtstages ein.<br><br><b>Beispiel:</b> Heißt Ihre Mutter <b>Su</b>sanne, ist sie am <b>08</b>.01.1960 geboren und Sie sind am <b>23</b>.01.1990 geboren, so lautet Ihr Code: <b>SU0823</b>"
-              }
-            },
-            {
-              type: "text",
-              name: "Code",
-              title: "",
-              isRequired: true
-            },
-            {
               type: "radiogroup",
-              name: "Zukunftsproband",
+              name: "subsequent_questionnaire",
+              isRequired: this.state.requiredQ,
               title: {
                 de:
                   "Um nachvollziehen zu können, inwieweit sich bei Ihnen bestimmte Merkmale im Laufe der Zeit verändern, würden wir Sie in einigen Monaten gerne noch einmal befragen. Stehen Sie hierfür zur Verfügung?"
@@ -419,6 +396,91 @@ class Post_Questionnaire extends React.Component {
                   }
                 }
               ]
+            },
+            {
+              type: "radiogroup",
+              name: "competition",
+              isRequired: this.state.requiredQ,
+              title: {
+                de:
+                  "Als Dankeschön für Ihre Teilnahme möchten wir gerne unter den Teilnehmenden drei 50 Euro-Gutscheine sowie fünf 10 Euro-Gutscheine von dem Online-Versandhändler Amazon verlosen. Möchten Sie an dieser Verlosung teilnehmen?"
+              },
+              choices: [
+                {
+                  value: "1",
+                  text: {
+                    de: "Ja"
+                  }
+                },
+                {
+                  value: "0",
+                  text: {
+                    de: "Nein"
+                  }
+                }
+              ]
+            },
+            {
+              type: "radiogroup",
+              name: "feedback",
+              isRequired: this.state.requiredQ,
+              title: {
+                de:
+                  "Möchten Sie, dass wir Ihnen nach Abschluss unserer Studie Ihren Kreativitätsscore mitteilen? Dieser wird basierend auf der Blocks- und der Neue Wörter-Aufgabe bestimmt."
+              },
+              choices: [
+                {
+                  value: "1",
+                  text: {
+                    de: "Ja"
+                  }
+                },
+                {
+                  value: "0",
+                  text: {
+                    de: "Nein"
+                  }
+                }
+              ]
+            },
+            {
+              type: "text",
+              name: "email",
+              visibleIf:
+                "{subsequent_questionnaire} = 1 or {competition} =1 or {feedback} = 1",
+              isRequired: this.state.requiredQ,
+              title: {
+                de:
+                  "Hinterlassen Sie uns Ihre E-Mail-Adresse, damit wir Sie für die zweite Befragungsrunde/die Verlosung/das Feedback kontaktieren können."
+              }
+            },
+            {
+              type: "html",
+              name: "Info_Code",
+              html: {
+                de:
+                  "<br>Mittels eines individuellen Codes, den Sie nun erstellen, können Sie den Lehrstuhl jederzeit kontaktieren und eine Löschung Ihrer Daten verlangen. Dieser Code ermöglicht es uns ebenfalls, die Daten der beiden Erhebungszeitpunkte personenbezogen zuordnen zu können und dabei dennoch Ihre Anonymität zu wahren, sofern Sie einem zweiten Erhebungszeitpunkt oben zugestimmt haben.<br><br>1. Bitte geben Sie in das Feld unten zuerst die ersten zwei Buchstaben des Vornamens Ihrer Mutter ein.<br>2. Bitte geben Sie nun die ersten zwei Ziffern des Geburtstages Ihrer Mutter ein.<br>3. Bitte geben Sie abschließend die ersten zwei Ziffern Ihres Geburtstages ein.<br><br><b>Beispiel:</b> Heißt Ihre Mutter <b>Su</b>sanne, ist sie am <b>08</b>.01.1960 geboren und sind Sie am <b>23</b>.01.1990 geboren, so lautet Ihr Code: <b>SU0823</b>"
+              }
+            },
+            {
+              type: "text",
+              name: "code",
+              title: "Code",
+              isRequired: this.state.requiredQ,
+              validators: [
+                {
+                  type: "text",
+                  minLength: 6,
+                  maxLength: 6,
+                  allowDigits: true
+                }
+              ]
+            },
+            {
+              type: "html",
+              name: "info_Rückfragen",
+              html:
+                "Für Rückfragen oder Anmerkungen stehen wir Ihnen gerne zur Verfügung: Lorenz Prasch (lorenz.prasch@tum.de)"
             }
           ]
         }

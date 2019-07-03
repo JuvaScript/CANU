@@ -20,6 +20,10 @@ var studyRouter = require('./routes/studyRouter');
 // über diese Route können vorhandene Tasks in Datenbank eingepflegt werden
 var insertTaskRouter = require('./routes/insertTaskRouter');
 
+var Post_QuestionnaireRouter = require('./routes/Post_QuestionnaireRouter');
+var APMRouter = require('./routes/APMRouter');
+var ICAARouter = require('./routes/ICAARouter');
+
 //Connection zu Datenbank und ODM mongoose
 const mongoose = require('mongoose');
 
@@ -46,7 +50,8 @@ mongoose.set('useCreateIndex', true);
 //App
 const app = express();
 
-
+app.set('views',path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
 app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
@@ -91,6 +96,9 @@ app.use('/insertTasks', insertTaskRouter);
 // });
 
 // app.listen(9000);
+app.use('/Post_Questionnaire', Post_QuestionnaireRouter);
+app.use('/APM', APMRouter);
+app.use('/ICAA', ICAARouter);
 
 // //LogIn Barrier
 // function auth(req, res, next) {

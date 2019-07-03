@@ -30,29 +30,28 @@ insertTaskRouter.route("/").post((req, res, next) => {
 
     {
       task_type: "Neue_Wörter",
-      config: "8",
+      config: "11",
       max: "24",
       task: ["CETNE", "RFGBZ", "HIRAK", "HSNFE", "EDAN"]
     },
     {
       task_type: "Neue_Wörter",
-      config: "9",
+      config: "12",
       max: "23",
       task: ["DIFNE", "STBAT", "RZRIP", "BIBSL", "IENAL"]
     },
     {
       task_type: "Neue_Wörter",
-      config: "10",
+      config: "13",
       max: "21",
       task: ["FTPER", "NDULI", "ZAERF", "TILMU", "ESCTH"]
     },
     {
       task_type: "Neue_Wörter",
-      config: "10",
+      config: "14",
       max: "21",
       task: ["HRRDH", "NEGIT", "ESRGE", "CDEEN", "EIUW"]
     },
-
     {
       task_type: "Tetris",
       config: "1",
