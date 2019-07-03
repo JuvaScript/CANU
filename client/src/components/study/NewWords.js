@@ -7,13 +7,11 @@ import "./NewWords.css";
 // import Countdown from 'react-countdown-now';
 import Countdown from "./Countdown";
 
-
 import ReactTimeout from "react-timeout";
 
 import axios from "axios";
 
 class NewWords extends Component {
-
   constructor(props) {
     super(props);
     this.countdownElement = React.createRef();
@@ -235,7 +233,7 @@ class NewWords extends Component {
     // create solution object based on current state
     const solutionObject = {
       solution: this.state.values.join().toLowerCase(),
-      unused: this.state.allowedChars.join(' ').toLowerCase(),
+      unused: this.state.allowedChars.join(" ").toLowerCase(),
       task: this.state.taskID
     };
 
@@ -335,7 +333,11 @@ class NewWords extends Component {
                 jedem einfallen.
               </p>
             </div>
-            <Countdown timer={180} timeNext={this.timeNext} ref={this.countdownElement} />
+            <Countdown
+              timer={180}
+              timeNext={this.timeNext}
+              ref={this.countdownElement}
+            />
             {/* <Countdown
               date={Date.now() + 10000}
               renderer={this.renderer}
@@ -356,12 +358,12 @@ class NewWords extends Component {
                     Aufgabe abschließen
                   </button>
                 ) : (
-                    <button
-                      className="next-btn"
-                      disabled={this.state.values.every(el => el.length === 0)}
-                      onClick={this.handleNext}
-                    >
-                      Nächste Aufgabe
+                  <button
+                    className="next-btn"
+                    disabled={this.state.values.every(el => el.length === 0)}
+                    onClick={this.handleNext}
+                  >
+                    Nächste Aufgabe
                   </button>
                 )}
               </form>

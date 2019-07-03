@@ -57,7 +57,7 @@ class APM extends React.Component {
               name: "info_APM_Instruktion",
               html: {
                 de:
-                  "Es handelt sich bei der nächsten Aufgabe um einen <b>Test der Wahrnehmung und des logischen Denkens</b>. Anhand eines Beispielproblems soll Ihnen gezeigt werden, wie der Test funktioniert.<br><br>Der obere Teil dieses Problems besteht aus einem Muster, aus dem ein Teil abgeschnitten ist. Betrachten Sie das Muster und überlegen Sie, wie das Teil aussehen muss, mit dem das Muster sowohl in <b>waagerechter</b> und <b>senkrechter</b> Richtung korrekt vervollständigt werden kann. Suchen Sie nun aus den acht unterhalb angeordneten Wahlmöglichkeiten die korrekte heraus. Nur eines dieser Teile bildet eine vollständige richtige Antwort.<br><br><img src='/images/Item_1.png' width='400' alt='Beispielaufgabe' align='middle'/><br><br>Bei der Betrachtung jeder Reihe (waagerecht) und jeder Spalte (senkrecht) wird deutlich, dass Antwortmöglichkeit <b>Nummer 4</b> für beide Richtungen die korrekte Lösung bietet.<br><br>Sie werden feststellen, dass die <b>sechs Durchgänge</b> unterschiedlich schwer sind und, dass für die Lösung von einfachen und schwierigen Problemen gleichermaßen immer die gleiche Methode anzuwenden ist. <b>Zur Bearbeitung der Probleme steht Ihnen soviel Zeit zur Verfügung, wie Sie möchten.</b> Denken Sie daran, dass es auf die Genauigkeit des Arbeitens ankommt. Die Lösung der Probleme erfolgt der Reihe nach und es ist nicht möglich, an den Anfang der Aufgabe zurückzuspringen. Sobald Sie sich für eine Antwortmöglichkeit entschieden haben, klicken Sie auf die Antwortmöglichkeit. Sie erreichen den nächsten Durchgang über den Button <b>'Weiter'</b>."
+                  "Es handelt sich bei der nächsten Aufgabe um einen <b>Test der Wahrnehmung und des logischen Denkens</b>. Anhand eines Beispielproblems soll Ihnen gezeigt werden, wie der Test funktioniert.<br><br>Der obere Teil dieses Problems besteht aus einem Muster, aus dem ein Teil abgeschnitten ist. Betrachten Sie das Muster und überlegen Sie, wie das Teil aussehen muss, mit dem das Muster sowohl in <b>waagerechter</b> und <b>senkrechter</b> Richtung korrekt vervollständigt werden kann. Suchen Sie nun aus den acht unterhalb angeordneten Wahlmöglichkeiten die korrekte heraus. Nur eines dieser Teile bildet eine vollständige richtige Antwort.<br><br><img src='/images/Item_1.png' width='400' alt='Beispielaufgabe' align='middle'/><br><br>Bei der Betrachtung jeder Reihe (waagerecht) und jeder Spalte (senkrecht) wird deutlich, dass Antwortmöglichkeit <b>Nummer 4</b> für beide Richtungen die korrekte Lösung bietet.<br><br>Sie werden feststellen, dass die <b>sechs Durchgänge</b> unterschiedlich schwer sind und, dass für die Lösung von einfachen und schwierigen Problemen gleichermaßen immer die gleiche Methode anzuwenden ist. <b>Zur Bearbeitung der Probleme steht Ihnen soviel Zeit zur Verfügung, wie Sie möchten.</b> Denken Sie daran, dass es auf die Genauigkeit des Arbeitens ankommt. Die Lösung der Probleme erfolgt der Reihe nach und es ist nicht möglich, an den Anfang der Aufgabe zurückzuspringen. Sobald Sie sich für eine Antwortmöglichkeit entschieden haben, klicken Sie auf diese. Sie erreichen den nächsten Durchgang über den Button <b>'Weiter'</b>."
               }
             }
           ]
@@ -75,7 +75,7 @@ class APM extends React.Component {
               type: "html",
               name: "info_Anweisung",
               html:
-                "Sobald Sie sich für eine Antwortmöglichkeit entschieden haben, klicken Sie auf die Antwortmöglichkeit. Klicken Sie anschließend auf 'Weiter'"
+                "Sobald Sie sich für eine Antwortmöglichkeit entschieden haben, klicken Sie auf diese. Klicken Sie anschließend auf 'Weiter'"
             },
             {
               type: "imagepicker",
@@ -135,7 +135,7 @@ class APM extends React.Component {
               type: "html",
               name: "info_Anweisung",
               html:
-                "Sobald Sie sich für eine Antwortmöglichkeit entschieden haben, klicken Sie auf die Antwortmöglichkeit. Klicken Sie anschließend auf 'Weiter'"
+                "Sobald Sie sich für eine Antwortmöglichkeit entschieden haben, klicken Sie auf diese. Klicken Sie anschließend auf 'Weiter'"
             },
             {
               type: "imagepicker",
@@ -195,7 +195,7 @@ class APM extends React.Component {
               type: "html",
               name: "info_Anweisung",
               html:
-                "Sobald Sie sich für eine Antwortmöglichkeit entschieden haben, klicken Sie auf die Antwortmöglichkeit. Klicken Sie anschließend auf 'Weiter'"
+                "Sobald Sie sich für eine Antwortmöglichkeit entschieden haben, klicken Sie auf diese. Klicken Sie anschließend auf 'Weiter'"
             },
             {
               type: "imagepicker",
@@ -255,7 +255,7 @@ class APM extends React.Component {
               type: "html",
               name: "info_Anweisung",
               html:
-                "Sobald Sie sich für eine Antwortmöglichkeit entschieden haben, klicken Sie auf die Antwortmöglichkeit. Klicken Sie anschließend auf 'Weiter'"
+                "Sobald Sie sich für eine Antwortmöglichkeit entschieden haben, klicken Sie auf diese. Klicken Sie anschließend auf 'Weiter'"
             },
             {
               type: "imagepicker",
@@ -315,7 +315,7 @@ class APM extends React.Component {
               type: "html",
               name: "info_Anweisung",
               html:
-                "Sobald Sie sich für eine Antwortmöglichkeit entschieden haben, klicken Sie auf die Antwortmöglichkeit. Klicken Sie anschließend auf 'Weiter'"
+                "Sobald Sie sich für eine Antwortmöglichkeit entschieden haben, klicken Sie auf diese. Klicken Sie anschließend auf 'Weiter'"
             },
             {
               type: "imagepicker",
@@ -375,7 +375,7 @@ class APM extends React.Component {
               type: "html",
               name: "info_Anweisung",
               html:
-                "Sobald Sie sich für eine Antwortmöglichkeit entschieden haben, klicken Sie auf die Antwortmöglichkeit. Klicken Sie anschließend auf 'Weiter'"
+                "Sobald Sie sich für eine Antwortmöglichkeit entschieden haben, klicken Sie auf diese. Klicken Sie anschließend auf 'Weiter'"
             },
             {
               type: "imagepicker",
