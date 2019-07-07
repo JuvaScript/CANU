@@ -16,21 +16,26 @@ class BlocksInstruction extends React.Component {
           <div className="right">
             <p>
               In dem folgenden Abschnitt besteht die Aufgabe darin, die rechts
-              dargestellte Fläche mit den kleinen Elementen links möglichst
-              vollständig auszufüllen. Sie können die Elemente beliebig auf der
-              Fläche anordnen. Es ist möglich die Elemente so zu platzieren,
-              dass sie über die Fläche hinausragen.{" "}
+              dargestellte, dunkelgraue Fläche mit den grünen Elementen links
+              möglichst vollständig auszufüllen. Sie können die Elemente
+              beliebig auf der Fläche anordnen.{" "}
               <span>
                 Ziel der Aufgabe ist es, möglichst die gesamte Fläche mit den
                 Elementen zu bedecken
               </span>
               . Jedes Element steht mehrfach zur Verfügung und wird mittels
               Drag-and-drop in die gewünschte Position verschoben und kann
-              mittels rechtem Mausklick rotiert werden. Bei der Positionierung
-              ist keine Überlappung mit anderen Elementen zulässig.
+              mittels rechtem Mausklick rotiert werden.{" "}
+              <span>
+                Es ist möglich, die Elemente so zu platzieren, dass sie über die
+                Fläche hinausragen, wodurch jedoch die Qualität der Lösung
+                reduziert wird
+              </span>
+              . Bei der Positionierung ist keine Überlappung mit anderen
+              Elementen zulässig.
               <br />
               <br />
-              Insgesamt werden Sie <span>vier</span> Aufgaben mit jeweils
+              Insgesamt werden Sie <span>vier Aufgaben</span> mit jeweils
               unterschiedlich geformten Flächen bearbeiten. Für jede Aufgabe
               haben Sie <span>drei Minuten Zeit</span>, danach gilt sie als
               beendet.{" "}
@@ -45,15 +50,16 @@ class BlocksInstruction extends React.Component {
               nächste Aufgabe automatisch gestartet.
               <br />
               <br />
-              Um Sie mit der Aufgabenstellung vertraut zu machen, ist unten eine
-              Beispielaufgabe abgebildet.
+              Um Sie mit der Aufgabenstellung vertraut zu machen, ist unten ein
+              kurzes Erklärvideo eingebunden.
               <br />
               <br />
-              <img
-                src="/images/Item_7_0.png"
-                width="500"
-                alt="Test Item 1"
-                align="middle"
+              <video
+                src="/videos/Blocks_SC.mp4"
+                type="video/mp4"
+                width="700"
+                autobuffer
+                controls
               />
               <br />
               <br />

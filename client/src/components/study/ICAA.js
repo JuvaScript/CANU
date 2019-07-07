@@ -16,7 +16,7 @@ import Tasks from "./Tasks";
 class ICAA extends React.Component {
   state = {
     isCompleted: false,
-    requiredQ: false,
+    requiredQ: true,
     caInstructions: [],
     caScale: ["Nie", "1-2 Mal", "3-5 Mal", "6-10 Mal", "Mehr als 10 Mal"]
   };
@@ -82,10 +82,10 @@ class ICAA extends React.Component {
             {
               type: "matrix",
               name: "literature",
+              isAllRowRequired: this.state.requiredQ,
               title: {
                 de: this.state.caInstructions[0]
               },
-              isRequired: this.state.requiredQ,
               columns: [
                 {
                   value: "1",
@@ -160,10 +160,10 @@ class ICAA extends React.Component {
             {
               type: "matrix",
               name: "music",
+              isAllRowRequired: this.state.requiredQ,
               title: {
                 de: this.state.caInstructions[1]
               },
-              isRequired: this.state.requiredQ,
               columns: [
                 {
                   value: "1",
@@ -239,10 +239,10 @@ class ICAA extends React.Component {
             {
               type: "matrix",
               name: "crafts",
+              isAllRowRequired: this.state.requiredQ,
               title: {
                 de: this.state.caInstructions[2]
               },
-              isRequired: this.state.requiredQ,
               columns: [
                 {
                   value: "1",
@@ -317,10 +317,10 @@ class ICAA extends React.Component {
             {
               type: "matrix",
               name: "cooking",
+              isAllRowRequired: this.state.requiredQ,
               title: {
                 de: this.state.caInstructions[3]
               },
-              isRequired: this.state.requiredQ,
               columns: [
                 {
                   value: "1",
@@ -395,10 +395,10 @@ class ICAA extends React.Component {
             {
               type: "matrix",
               name: "sports",
+              isAllRowRequired: this.state.requiredQ,
               title: {
                 de: this.state.caInstructions[4]
               },
-              isRequired: this.state.requiredQ,
               columns: [
                 {
                   value: "1",
@@ -478,10 +478,10 @@ class ICAA extends React.Component {
             {
               type: "matrix",
               name: "fine_arts",
+              isAllRowRequired: this.state.requiredQ,
               title: {
                 de: this.state.caInstructions[5]
               },
-              isRequired: this.state.requiredQ,
               columns: [
                 {
                   value: "1",
@@ -557,10 +557,10 @@ class ICAA extends React.Component {
             {
               type: "matrix",
               name: "performing_arts",
+              isAllRowRequired: this.state.requiredQ,
               title: {
                 de: this.state.caInstructions[6]
               },
-              isRequired: this.state.requiredQ,
               columns: [
                 {
                   value: "1",
@@ -636,10 +636,10 @@ class ICAA extends React.Component {
             {
               type: "matrix",
               name: "science",
+              isAllRowRequired: this.state.requiredQ,
               title: {
                 de: this.state.caInstructions[7]
               },
-              isRequired: this.state.requiredQ,
               columns: [
                 {
                   value: "1",

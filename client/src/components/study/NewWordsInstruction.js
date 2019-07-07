@@ -21,7 +21,7 @@ class NewWordsInstruction extends React.Component {
               nur einmal verwendet werden. Die von Ihnen gebildeten deutschen
               Wörter werden als gültig gewertet, wenn sie{" "}
               <span>korrekt geschrieben sind</span>. Insgesamt werden Sie{" "}
-              <span>vier</span> Aufgaben mit jeweils unterschiedlichen
+              <span>vier Aufgaben</span> mit jeweils unterschiedlichen
               Buchstaben bearbeiten. Für jede Aufgabe haben Sie{" "}
               <span>drei Minuten Zeit</span>, danach gilt sie als beendet.{" "}
               <span>
@@ -32,8 +32,8 @@ class NewWordsInstruction extends React.Component {
               .
               <br />
               <br />
-              Um Sie mit der Aufgabenstellung vertraut zu machen, ist unten eine
-              Beispielaufgabe abgebildet. Klicken Sie im Anschluss beim
+              Um Sie mit der Aufgabenstellung vertraut zu machen, ist unten ein
+              kurzes Erklärvideo eingebunden. Klicken Sie im Anschluss beim
               Bearbeiten der Aufgaben auf oder über die blaue Linie, um ein
               gebildetes Wort mittels <span>Ihrer Computertastatur</span>{" "}
               einzugeben (ein Mausklick auf den jeweiligen Buchstaben ist nicht
@@ -48,11 +48,12 @@ class NewWordsInstruction extends React.Component {
               nächste Aufgabe automatisch gestartet.
               <br />
               <br />
-              <img
-                src="/images/Item_7_0.png"
-                width="500"
-                alt="Test Item 1"
-                align="middle"
+              <video
+                src="/videos/New_Words_SC.mp4"
+                type="video/mp4"
+                width="700"
+                autobuffer
+                controls
               />
               <br />
               <br />

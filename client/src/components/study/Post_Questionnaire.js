@@ -16,7 +16,7 @@ import Tasks from "./Tasks";
 class Post_Questionnaire extends React.Component {
   state = {
     isCompleted: false,
-    requiredQ: false
+    requiredQ: true
   };
 
   onCompleteComponent = survey => {
@@ -41,7 +41,7 @@ class Post_Questionnaire extends React.Component {
     defaultThemeColors["$main-color"] = "#3200ff";
     defaultThemeColors["$main-hover-color"] = "#f55000";
     Survey.StylesManager.applyTheme();
-    
+
     let json = {
       locale: "de",
       pages: [
@@ -53,9 +53,9 @@ class Post_Questionnaire extends React.Component {
               name: "creative_achievements",
               title: {
                 de:
-                  "Bitte nennen Sie nun die drei kreativsten Leistungen/Errungenschaften Ihres Lebens. Wählen Sie jene Leistungen aus die einer anderen Person am ehesten ermöglichen Ihre Kreativität einzuschätzen. Ihre Antworten können auch aus anderen Bereichen als denen im vorangehenden Fragebogen kommen. Nennen Sie erst Ihre kreativste Leistung, dann die zweit-kreativste Leistung, und so weiter. Beschreiben Sie bitte jede Leistung mit einem kurzen prägnanten Satz in den entsprechenden untenstehenden Feldern. Wenn es weniger als drei relevante Leistungen geben sollte, lassen Sie die verbleibenden Felder einfach frei."
+                  "Bitte nennen Sie nun die drei kreativsten Leistungen/Errungenschaften Ihres Lebens. Wählen Sie jene Leistungen aus, die einer anderen Person am ehesten ermöglichen, Ihre Kreativität einzuschätzen. Ihre Antworten können auch aus anderen Bereichen als denen im vorangehenden Fragebogen kommen. Nennen Sie erst Ihre kreativste Leistung, dann die zweit-kreativste Leistung, und so weiter. Beschreiben Sie bitte jede Leistung mit einem kurzen prägnanten Satz in den entsprechenden untenstehenden Feldern. Wenn es weniger als drei relevante Leistungen geben sollte, lassen Sie die verbleibenden Felder einfach frei."
               },
-              isRequired: this.state.requiredQ,
+              isRequired: false,
               items: [
                 {
                   name: "text1",
@@ -275,7 +275,7 @@ class Post_Questionnaire extends React.Component {
               type: "matrix",
               name: "statement",
               title: "Inwieweit treffen die folgenden Aussagen auf Sie zu?",
-              isRequired: this.state.requiredQ,
+              isAllRowRequired: this.state.requiredQ,
               columns: [
                 {
                   value: "1",
@@ -313,9 +313,9 @@ class Post_Questionnaire extends React.Component {
             {
               type: "matrix",
               name: "games",
+              isAllRowRequired: this.state.requiredQ,
               title:
                 "Wie gut schätzen Sie Ihre Fähigkeiten in den folgenden Spielen ein?",
-              isRequired: this.state.requiredQ,
               columns: [
                 {
                   value: "0",
@@ -525,7 +525,7 @@ class Post_Questionnaire extends React.Component {
     var onCompleteComponent = this.state.isCompleted
       ? this.props.incrementSequenceCounter()
       : // this.props.history.push("/finished")
-      null;
+        null;
 
     return (
       <div>
