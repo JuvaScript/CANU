@@ -318,10 +318,6 @@ class Post_Questionnaire extends React.Component {
                 "Wie gut schätzen Sie Ihre Fähigkeiten in den folgenden Spielen ein?",
               columns: [
                 {
-                  value: "0",
-                  text: "ich kenne das Spiel nicht"
-                },
-                {
                   value: "1",
                   text: "schlecht"
                 },
@@ -340,7 +336,11 @@ class Post_Questionnaire extends React.Component {
                 {
                   value: "5",
                   text: "gut"
-                }
+                },
+                {
+                  value: "0",
+                  text: "ich kenne das Spiel nicht"
+                },
               ],
               rows: [
                 {
@@ -491,7 +491,7 @@ class Post_Questionnaire extends React.Component {
         de: "Weiter"
       },
       completeText: {
-        de: "Weiter"
+        de: "Ende"
       },
       requiredText: ""
     };
