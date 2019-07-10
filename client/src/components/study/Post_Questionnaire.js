@@ -55,7 +55,7 @@ class Post_Questionnaire extends React.Component {
                 de:
                   "Bitte nennen Sie nun die drei kreativsten Leistungen/Errungenschaften Ihres Lebens. Wählen Sie jene Leistungen aus, die einer anderen Person am ehesten ermöglichen, Ihre Kreativität einzuschätzen. Ihre Antworten können auch aus anderen Bereichen als denen im vorangehenden Fragebogen kommen. Nennen Sie erst Ihre kreativste Leistung, dann die zweit-kreativste Leistung, und so weiter. Beschreiben Sie bitte jede Leistung mit einem kurzen prägnanten Satz in den entsprechenden untenstehenden Feldern. Wenn es weniger als drei relevante Leistungen geben sollte, lassen Sie die verbleibenden Felder einfach frei."
               },
-              isRequired: false,
+              isRequired: this.state.requiredQ,
               items: [
                 {
                   name: "text1",
@@ -477,11 +477,16 @@ class Post_Questionnaire extends React.Component {
               ]
             },
             {
+              type: "text",
+              name: "comment",
+              title: "Haben Sie noch Anmerkungen zu dieser Studie?",
+            },
+            {
               type: "html",
               name: "info_Rückfragen",
               html:
-                "Für Rückfragen oder Anmerkungen stehen wir Ihnen gerne zur Verfügung: Lorenz Prasch (lorenz.prasch@tum.de)"
-            }
+                "Für Fragen stehen wir Ihnen gerne zur Verfügung: Lorenz Prasch (lorenz.prasch@tum.de)"
+            },
           ]
         }
       ],
