@@ -331,6 +331,9 @@ class NewWords extends Component {
                 Versuchen Sie, so viele Buchstaben wie möglich zu nutzen und
                 dabei deutsche Wörter zu bilden, die möglich sind, aber nicht
                 jedem einfallen.
+                <br />
+                Tippen Sie die Wörter mit Ihrer <span>Tastatur</span> ein und
+                fügen Sie neue Wörter mit dem <span>'+'-Icon</span> hinzu.
               </p>
             </div>
             <Countdown

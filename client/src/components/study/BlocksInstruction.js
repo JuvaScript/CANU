@@ -15,30 +15,33 @@ class BlocksInstruction extends React.Component {
         <div className="home-content">
           <div className="right">
             <p>
+              <span2>
+                Bitte lesen Sie die folgenden Instruktionen gründlich. Wöhrend
+                der Bearbeitung der Aufgaben haben Sie keine Möglichkeiten
+                zurück zu springen.
+              </span2>
+              <br />
+              <br />
               In dem folgenden Abschnitt besteht die Aufgabe darin, die rechts
               dargestellte, dunkelgraue Fläche mit den grünen Elementen links
               möglichst vollständig auszufüllen. Sie können die Elemente
               beliebig auf der Fläche anordnen.{" "}
               <span>
                 Ziel der Aufgabe ist es, möglichst die gesamte Fläche mit den
-                Elementen zu bedecken
+                Elementen zu bedecken. Jedes Element steht mehrfach zur
+                Verfügung, wird mittels Drag-and-drop in die gewünschte Position
+                verschoben und kann mittels rechtem Mausklick rotiert
+                werden.&nbsp;
               </span>
-              . Jedes Element steht mehrfach zur Verfügung, wird mittels
-              Drag-and-drop in die gewünschte Position verschoben und kann
-              mittels rechtem Mausklick rotiert werden.{" "}
-              <span>
-                Es ist möglich, die Elemente so zu platzieren, dass sie über die
-                Fläche hinausragen, wodurch jedoch die Qualität der Lösung
-                reduziert wird
-              </span>
-              . Bei der Positionierung ist keine Überlappung mit anderen
-              Elementen zulässig.
+              Es ist möglich, die Elemente so zu platzieren, dass sie über die
+              Fläche hinausragen, wodurch jedoch die Qualität der Lösung
+              reduziert wird. Bei der Positionierung ist keine Überlappung mit
+              anderen Elementen zulässig.
               <br />
               <br />
-              Insgesamt werden Sie <span>vier Aufgaben</span> mit jeweils
-              unterschiedlich geformten Flächen bearbeiten. Für jede Aufgabe
-              haben Sie <span>drei Minuten Zeit</span>, danach gilt sie als
-              beendet.{" "}
+              Insgesamt werden Sie vier Aufgaben mit jeweils unterschiedlich
+              geformten Flächen bearbeiten. Für jede Aufgabe haben Sie drei
+              Minuten Zeit, danach gilt sie als beendet.{" "}
               <span>
                 Versuchen Sie, die vorgegebene Fläche so vollständig wie möglich
                 mit den vorgegebenen Elementen zu füllen und dabei Muster zu
