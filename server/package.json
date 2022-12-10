@@ -19,7 +19,7 @@
     "cors": "^2.8.5",
     "counter": "^0.1.1",
     "debug": "~2.6.9",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "express-messages": "^1.0.1",
     "express-session": "^1.15.6",
     "file-system": "^2.2.2",
